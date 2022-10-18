@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https: //fonts.googleapis.com/css2? family= MuseoModerno & display=swap" rel="stylesheet">
+
+    <title>MyCar Web</title>
+
+    <link rel="stylesheet" href="./src/css/estilos.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/rolagem.css">
+
+</head>
+
+<body>
+
+    <main class="pagina">
+
+
+
+        <div class="cabecalho">
+            <img src="./src/imagens/logo-mycar-anim.gif" alt="Gif do logo mycar">
+        </div>
+
+        <div class="conteudo">
+
+            <ul class="menus">
+
+                <li class="menu selecionado" id="id-descricao">
+                    <h3>DESCRIÇÃO</h3>
+                </li>
+                <li class="menu" id="id-abordagem">
+                    <h3>ABORDAGEM</h3>
+                </li>
+                <li class="menu" id="id-divulgacao">
+                    <h3>CONCEITO</h3>
+                </li>
+                <li class="menu" id="id-contato">
+                    <h3>CONTATO</h3>
+                </li>
+
+            </ul>
+
+            <div class="informacoes-abas">
+
+                <div class="informacao selecionado" id="informacao-id-descricao">
+
+                    <h4 class="frase">Olá! <span>Seja bem-vindo(a)</span>!</h4>
+
+                    <p class="info-img">
+                        <img class="img-app" src="./src/imagens/foto-app.png" alt="Imagem do logo Mycar">
+                    </p>
+
+                    <h3 class="sub-titulos">Apresentação</h3><br>
+
+                    <p class="info">
+                        O automóvel foi e será, por muito tempo, um dos bens mais desejados pelas pessoas. Contudo com a aquisição deste bem, por consequência, surgem uma série de demandas no que diz respeito a sua manutenção, tanto preventiva, quanto reparadora.<br><br>
+                        O software idealizado e apresentado pela empresa GBM Company Info. Tec., busca trazer mais comodidade na relação entre profissionais ligados a manutenção, reparação, restauração etc., e os proprietários de automóveis.<br><br>
+                        Com uma interface simples e intuitiva o software permitirá que o(s) usuário(s), tenham um acompanhamento mais fidedigno do histórico de manutenções realizadas e podendo até ter um relatório da situação atual do veículo.<br><br>
+                        No decorrer da apresentação serão salientados mais detalhes do software <span>MyCar</span>, seu novo aliado no cuidado com a “saúde” do seu carro.
+                    </p><br>
+
+                    <h3 class="sub-titulos">Briefing do projeto</h3><br>
+
+                    <p class="info">
+                        O sistema que será desenvolvido objetivará a apresentação de um layout simples, moderno e intuitivo. Com a aplicação de cores neutras o design seguirá um visual moderno permitindo uma fácil usabilidade.<br><br>
+                        Telas de cadastros iniciais com solicitação de informações, simplificadas, farão parte da abertura do sistema. Nesses espaços os usuários farão um pré-cadastro, para apenas entrar na plataforma e familiarizar-se. Posteriormente, com o interesse em se aprofundar na ferramenta os usuários deverão completar os seus dados de acordo com o tipo de acesso e objetivo.<br><br>
+                        Cada tipo de usuário terá a sua disposição, telas específicas para inserção de informações, mas todos poderão estar em constante interação com os demais usuários, ou seja, existirá o ambiente de edição e o ambiente de interação.<br><br>
+                        A interação será uma das chaves do projeto, pois serviços poderão ser oferecidos, assim como, descontos e promoções por parte dos profissionais. Já o proprietário do veículo terá uma visualização mais ampla dos profissionais à disposição (pelo filtro distância, por exemplo), além de ter recomendações, facilidade de agendamentos entre outras ferramentas.<br><br>
+                        Já pensou poder ter na palma da mão uma plataforma que permita acompanhar a saúde do seu veículo? Com o <span>MyCar</span> essa possibilidade se descortina.<br><br>
+                    </p>
+
+                </div>
+
+                <div class="informacao" id="informacao-id-abordagem">
+
+                    <h3 class="sub-titulos">Usuários</h3><br>
+
+                    <p class="info">
+                        O software MyCar contará com uma interface simples, integrando 2 (dois) tipos de usuários: <span>Empreendedor</span> e <span>Cliente</span>.<br><br>
+                        O usuário Empreendedor terá acesso as funcionalidades direcionadas a prestação de serviços, podendo escolher os mesmos em uma listagem pré-determinada, aplicando valores e eventuais descontos.<br><br>
+                        O usuário Cliente terá acesso as funcionalidades direcionadas ao(s) veículo(s) cadastrado(s). Neste espaço poderão ser cadastrados um ou mais veículos, onde, logo após, será mostrada uma listagem de prestadores de serviços de acordo com o tipo de filtro escolhido (Proximidade, Estrelas, Desconto etc.).<br><br>
+                        Cada Cliente poderá avaliar o Empreendedor, de acordo com o serviço prestado, atribuindo Estrelas (de 1 a 5).
+                    </p><br>
+
+                    <h3 class="sub-titulos">Necessidades observadas e regras de negócio</h3><br>
+
+                    <p class="info">
+                        A maioria das pessoas passam por dificuldades na hora de procurar um especialista para cuidar da saúde do carro. Como saber se possuí boas referências? Quais prestadores de serviços estão mais próximos? Quais serviços oferecem? Entre outras dúvidas que surgem.<br><br>
+                        Assim, buscando facilitar está busca o software <span>MyCar</span> permitirá uma maior interação entre o(s) profissional(is) e os proprietários de veículos.<br><br>
+                        O usuário Empreendedor poderá gerenciar sua própria lista de clientes, enviando promoções e descontos especiais, além de lembretes para revisões, com base nas datas de revisões anteriores.<br><br>
+                        No caso dos proprietários dos veículos, será possível após o cadastro de um veículo, receber alertas de promoções e indicações das oficinas e prestadores de serviços mais próximos ou de acordo com o tipo de filtro escolhido.<br><br>
+                        Logo após efetivar um serviço o usuário Cliente poderá fazer uma avaliação (de 0 a 5), isso, contribuirá com o ranqueamento do prestador de serviço fazendo que este seja destacado no sistema. O Cliente também terá acesso a uma planilha de atualização da “saúde” do veículo, onde poderá fazer a programação para os próximos serviços e acompanhar as datas para manutenção preventiva (ex. troca de fluidos, troca de pneus, higienização de ar-condicionado entre outros).<br><br>
+                        Será um ambiente moderno para a comunicação, possibilitando envio de orçamentos a partir de tabelas contidas no sistema, envio de fotos, mensagens e a possibilidade de fazer o pagamento pelo serviço dendro do próprio sistema.
+                    </p>
+
+                </div>
+
+                <div class="informacao" id="informacao-id-divulgacao">
+
+                    <h3 class="sub-titulos">Branding - identidade da marca</h3><br>
+    
+                     <p class="info">
+                        O <span>MyCar</span> será um novo aliado na manutenção veicular.<br><br>
+                        Em breve o sistema estará disponível para acesso e realização de cadastros. Assim como, poderá proporcionar a interação que faltava para convergir na aplicação das melhores práticas na prestação de serviços automotivos.
+                    </p><br>
+
+                    <p class="info-img">
+                        <img class="img-divulgacao" src="./src/imagens/foto-camiseta.png" alt="Imagem da marca em uma camiseta">
+                    </p>
+                    <p class="info-img">
+                        <img class="img-divulgacao" src="./src/imagens/foto-caneca.png" alt="Imagem da marca em uma caneca">
+                    </p>
+
+                </div>
+
+                <div class="informacao" id="informacao-id-contato">
+
+                    <h3 class="sub-titulos">Entre em contato!</h3>
+    
+                     <p class="info">
+                        Em caso de dúvidas entre em contato conosco através do formulário abaixo.
+                    </p><br>
+
+                    <form class="formulario"> <!--Formulário não está ativo-->
+
+                        <label class="txt-form" for="nome">Nos diga o seu nome:</label><br>
+                        <input class="caixa-texto" type="texto" id="nome" name="nome"><br><br>
+                        <label class="txt-form" for="email">Qual é o seu e-mail?</label><br>
+                        <input class="caixa-texto" type="texto" id="email" name="email"><br><br>
+                        <label class="txt-form" for="mensagem">Digite sua mensagem:</label><br>
+                        <textarea class="caixa-texto" type="texto" name="mensagem" id="mensagem" rows="10" cols="30"></textarea><br><br>
+                        <button class="botao" type="botao" onclick="alert('Mensagem enviada com sucesso!')">Enviar</button>
+                    
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="robot">
+
+            <p class="robot-img">
+                <img src="./src/imagens/robot-mycar.gif">
+            </p>
+
+        </div>
+
+        <div class="observacoes">
+            <p>
+                <span>&#9888 Obs.:</span> O sistema aqui apresentado está em fase de desenvolvimento, assim, o material contido neste portfólio é apenas conceitual e visa demostrar as habilidades e conhecimentos de programação em <span>HTML, CSS e JavaScript</span>.<br><br>
+                <span>&#169</span> Direitos de propriedade reservados a Girlei Both de Matos.
+            </p>
+        </div>
+
+        <div class="rodape">
+            <img src="./src/imagens/logo-mycar.png" alt="logo mycar">
+            <h3 class="nomesoftware">Sistema MyCar</h3>
+            <h3 class="nomeempresa">&#127760 GBM Company Info. Tec.</h3>
+            <a href="mailto:gbmcompany.infotec@gmail.com">&#9993 gbmcompany.infotec@gmail.com</a>
+        </div>
+
+    </main>
+
+    <script src="./src/js/index.js"></script>
+    
+</body>
+
+</html>
