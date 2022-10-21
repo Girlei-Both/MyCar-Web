@@ -187,3 +187,15 @@ body{
     color: #ff6200;
     font-size: large;
 }
+
+/*Espaço para acesso ao código*/
+.codigo{
+    text-align: center;
+}
+.codigo img{
+    width: 60px;
+}
+.codigo span{
+    color: #ff6200;
+    font-size: large;
+}
