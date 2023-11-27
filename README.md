@@ -7,7 +7,9 @@ MyCar-App
 <br><br>
 
 ## Status do projeto
-Atualmente está em fase de `desenvolvimento`.
+Atualmente está em fase de `desenvolvimento`.<br>
+Clique no link ao lado e visualize a apresentação do projeto [MyCar-App](https://girlei-both.github.io/MyCar-Web)
+
 <br><br>
 
 ## Tecnologias que serão aplicadas
