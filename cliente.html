@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyCar Web - Cliente</title>
+
+    <link rel="stylesheet" href="./src/css/cliente.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+
+</head>
+
+<body>
+
+    <section class="areaInicial">
+
+        <div class="areaPerfil">
+            <div class="cardPerfil">
+                <img class="imgPerfil" src="./src/imagens/iconperfil.png" alt="">
+                <h3>Olá!</h3>
+
+                <div class="areaTxtPerfil">
+                    <p class="txtPerfil">ID</p>
+                    <label class="labelPerfil" for="">Código...</label>
+                </div>
+                <div class="areaTxtPerfil">
+                    <p class="txtPerfil">Nome</p>
+                    <label class="labelPerfil" for="">Usuário...</label>
+                </div>
+                <div class="areaTxtPerfil">
+                    <p class="txtPerfil">E-mail</p>
+                    <label class="labelPerfil" for="">E-mail...</label>
+                </div>
+
+            </div>
+            <div class="cardMapa">
+                <iframe class="imgMapa"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d81206.30787281554!2d-51.14180677266608!3d-30.057697531337972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2spt!4v1701104343699!5m2!1spt-PT!2spt"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+        </div>
+
+        <div class="areaPrincipal">
+            <header class="cardMenu">
+                <div class="botaoMenu">
+                    <a href="index.html">
+                        <img src="./src/imagens/sair.png" alt="">
+                    </a>
+                </div>
+                <div class="dataMenu" id="dataAtual"></div>
+                <div class="botaoMenu">
+                    <img src="./src/imagens/alert.png" alt="">
+                </div>
+                <div class="botaoMenu">
+                    <img src="./src/imagens/menu.png" alt="">
+                </div>
+            </header>
+
+            <nav class="cardBotoes">
+
+                <div class="botoesPrincipais">
+                    <img onclick="abrirPopup('popPerfil')" src="./src/imagens/perfil.png" alt="">
+                    <img onclick="abrirPopup('popVeiculo')" src="./src/imagens/veiculo.png" alt="">
+                    <img onclick="abrirPopup('popServico')" src="./src/imagens/servico.png" alt="">
+                </div>
+                <div class="botoesPrincipais">
+                    <img onclick="abrirPopup('')" src="./src/imagens/mensagem.png" alt="">
+                    <img onclick="abrirPopup('')" src="./src/imagens/realtorios.png" alt="">
+                </div>
+
+            </nav>
+
+        </div>
+
+    </section>
+
+    <aside class="areaInfo">
+        <div class="areaChat">
+
+            <div class="tituloChat">
+                <p>CHAT</p>
+            </div>
+
+            <div class="cardChat">
+                <img class="imgChat" src="./src/imagens/icon-img.png">
+                <div class="areaMensagem">
+                    <div class="areaEstrelas">
+                        <img class="estrela" src="./src/imagens/icon-estrela-cr.png">
+                        <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                        <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                        <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                        <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                    </div>
+                    <div class="mensagem">
+                        <label for="mensagem">...</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="cardCalendario">
+
+            <table class="calendario">
+
+                <tbody id="calendarioBody">
+                </tbody>
+            </table>
+
+        </div>
+    </aside>
+
+    <div id="popPerfil" class="fundoPopup" style="display: none;">
+
+        <div class="popArea">
+            <img class="popLogo" src="./src/imagens/logo-mycar.png" alt="">
+            <h2 class="popTitulo">Editar Perfil</h2>
+
+            <form action="" class="areaFormulario" id="areaPopPerfil">
+                <div class="colunaFormulario">
+                    <div class="areaLabel">
+                        <label for="">Foto</label>
+                        <input type="file" class="grande">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Nome</label>
+                        <input type="text" class="grande" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">E-mail</label>
+                        <input type="text" class="grande" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">CPF</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Data de nascimento</label>
+                        <input type="date" class="medio">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Gênero</label>
+                        <select name="" id="" class="medio">
+                            <option value="">Masculino</option>
+                            <option value="">Feminino</option>
+                            <option value="">Outro</option>
+                        </select>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Data de cadastro MyCar</label>
+                        <input type="date" class="medio" disabled>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Telefone</label>
+                        <input type="text" class="medio" placeholder="(00)000-000-000">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Celular</label>
+                        <input type="text" class="medio" placeholder="(00)000-000-000">
+                    </div>
+                </div>
+                <div class="colunaFormulario">
+                    <div class="areaLabel">
+                        <label for="">Endereço</label>
+                        <input type="text" class="grande" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Número</label>
+                        <input type="text" class="pequeno" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Bairro</label>
+                        <input type="text" class="medio" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Cidade</label>
+                        <input type="text" class="medio" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Estado (UF)</label>
+                        <input type="text" class="pequeno" placeholder="xx">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">CEP</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                </div>
+            </form>
+
+            <div class="popBotoes">
+                <button class="popBtExcluir">Excluir</button>
+                <button class="popBtSalvar">Salvar</button>
+                <button class="popBtEditar">Editar</button>
+            </div>
+
+            <img src="./src/imagens/interrogacao.png" class="popupAjudar" onclick="abrirPopup('popErro')">
+            <img src="./src/imagens/limpar.png" class="popupLimpar" onclick="limparFormulario('areaPopPerfil')">
+            <img src="./src/imagens/fechar.png" class="popupFechar" onclick="fecharPopup('popPerfil')">
+        </div>
+    </div>
+
+    <div id="popVeiculo" class="fundoPopup" style="display: none;">
+
+        <div class="popArea">
+            <img class="popLogo" src="./src/imagens/logo-mycar.png" alt="">
+            <h2 class="popTitulo">Editar Veículo</h2>
+
+            <form action="" class="areaFormulario" id="areaPopVeiculo">
+                <div class="colunaFormulario">
+                    <div class="areaLabel">
+                        <label for="">Foto</label>
+                        <input type="file" class="grande">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Marca</label>
+                        <input type="text" class="grande" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Modelo</label>
+                        <input type="text" class="grande" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Versão</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Ano Fabricação</label>
+                        <input type="date" class="medio">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Ano Modelo</label>
+                        <input type="date" class="medio">
+                        </select>
+                    </div>
+                </div>
+                <div class="colunaFormulario">
+                    <div class="areaLabel">
+                        <label for="">Placa</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Renavam</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Chassis</label>
+                        <input type="text" class="grande" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Código do Motor</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Válvulas</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Cilindros</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Cilindradas</label>
+                        <input type="text" class="medio" placeholder="Nº...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Cor</label>
+                        <input type="text" class="medio" placeholder="Escreva...">
+                    </div>
+                </div>
+                <div class="colunaFormulario">
+                    <div class="areaLabel">
+                        <label for="">Tração</label>
+                        <select name="" id="" class="medio">
+                            <option value="">Automotor</option>
+                            <option value="">Elétrico</option>
+                        </select>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Espécie</label>
+                        <select name="" id="" class="medio">
+                            <option value="">Passageiros</option>
+                            <option value="">Carga</option>
+                            <option value="">Misto</option>
+                            <option value="">Competição</option>
+                            <option value="">Tração</option>
+                            <option value="">Especial</option>
+                            <option value="">Coleção</option>
+                        </select>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Tipo</label>
+                        <select name="" id="" class="medio">
+                            <option value="">Automóvel</option>
+                            <option value="">Bicicleta</option>
+                            <option value="">Caminhão-Trator</option>
+                            <option value="">Caminhão</option>
+                            <option value="">Caminhonete</option>
+                            <option value="">Camioneta</option>
+                            <option value="">Ciclomotor</option>
+                            <option value="">Micro-Ônibus</option>
+                            <option value="">Motocicleta</option>
+                            <option value="">Motoneta</option>
+                            <option value="">Ônibus</option>
+                            <option value="">Quadriciclo</option>
+                            <option value="">Reboque ou Semi-Reboque
+                            <option value="">Trator de Esteiras</option>
+                            <option value="">Trator de Rodas</option>
+                            <option value="">Trator Misto</option>
+                            <option value="">Triciclo</option>
+                            <option value="">Utilitário</option>
+                            <option value="">Hatch</option>
+                            <option value="">Perua</option>
+                            <option value="">Van</option>
+                            <option value="">Jipe</option>
+                            <option value="">Coupe</option>
+                            <option value="">Sedan</option>
+                            <option value="">Minivan</option>
+                            <option value="">SUV</option>
+                            <option value="">Pickup</option>
+                            <option value="">Conversivel</option>
+                        </select>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Combustível</label>
+                        <select name="" id="" class="medio">
+                            <option value="">Gasolina</option>
+                            <option value="">Etanol</option>
+                            <option value="">Flex</option>
+                            <option value="">GNV</option>
+                            <option value="">Diesel</option>
+                        </select>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Categoria</label>
+                        <select name="" id="" class="medio">
+                            <option value="">Oficial</option>
+                            <option value="">Representação Diplomática</option>
+                            <option value="">Particular</option>
+                            <option value="">Aluguel</option>
+                            <option value="">Aprendizagem</option>
+                        </select>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Opcionais</label>
+                        <textarea name="" id="" class="grande"></textarea>
+                    </div>
+                </div>
+            </form>
+
+            <div class="popBotoes">
+                <button class="popBtExcluir">Excluir</button>
+                <button class="popBtSalvar">Salvar</button>
+                <button class="popBtEditar">Editar</button>
+            </div>
+
+            <img src="./src/imagens/interrogacao.png" class="popupAjudar" onclick="abrirPopup('popErro')">
+            <img src="./src/imagens/limpar.png" class="popupLimpar" onclick="limparFormulario('areaPopVeiculo')">
+            <img src="./src/imagens/fechar.png" class="popupFechar" onclick="fecharPopup('popVeiculo')">
+        </div>
+    </div>
+
+    <div id="popServico" class="fundoPopup" style="display: none;">
+
+        <div class="popArea">
+            <img class="popLogo" src="./src/imagens/logo-mycar.png" alt="">
+            <h2 class="popTitulo">Novo Serviço</h2>
+
+            <form action="" class="areaFormulario" id="areaPopServico">
+                <div class="colunaFormulario">
+                    <div class="areaLabel">
+                        <label for="">Qual serviço principal que deseja fazer?</label>
+                        <select name="" id="" class="medio">
+                            <option value="">Avaliação Geral</option>
+                            <option style="color: white;">Freios</option>
+                            <option value="">Lonas de Freio</option>
+                            <option value="">Campanas de Freio</option>
+                            <option value="">Pastilhas e Discos de Freio</option>
+                            <option value="">Fluido de Freio</option>
+                            <option style="color: white;">Injeção Eletrônica</option>
+                            <option value="">Limpeza de Bicos Injetores</option>
+                            <option value="">Afinação de Motores</option>
+                            <option value="">Diagnóstico por meio de Scanner Computadorizado</option>
+                            <option value="">Limpeza do TBI (Corpo de Borboleta)</option>
+                            <option style="color: white;">Manutenção Preventiva</option>
+                            <option value="">Sistema de Ignição</option>
+                            <option value="">Sistema de Injeção Eletrônica</option>
+                            <option value="">Cabos</option>
+                            <option value="">Velas</option>
+                            <option value="">Sistema de Ar-condicionado Automotivo</option>
+                            <option value="">Transmissão</option>
+                            <option value="">Pneus</option>
+                            <option value="">Escapamento</option>
+                            <option value="">Palhetas</option>
+                            <option style="color: white;">Sistema de Câmbio</option>
+                            <option value="">Câmbio Manual</option>
+                            <option value="">Câmbio Automatizado</option>
+                            <option value="">Câmbio Automático</option>
+                            <option style="color: white;">Reparos em Motores</option>
+                            <option value="">Regulagem de Válvulas</option>
+                            <option value="">Retífica de Motores</option>
+                            <option value="">Troca de Óleo e Lubrificação</option>
+                            <option value="">Troca de Filtro: Substituição de Óleo e Filtros</option>
+                            <option value="">Substituição de Correias</option>
+                            <option value="">Análise da Emissão de Gases Poluentes do Motor</option>
+                            <option value="">Descarbonização de Motores</option>
+                            <option style="color: white;">Revisões por km</option>
+                            <option value="">Revisão 10.000 km</option>
+                            <option value="">Revisão 20.000 km</option>
+                            <option value="">Revisão 30.000 km</option>
+                            <option value="">Revisão 40.000 km</option>
+                            <option value="">Revisão 50.000 km</option>
+                            <option value="">Revisão 60.000 km</option>
+                            <option value="">Revisão 80.000 km</option>
+                            <option value="">Revisão 100.000 km</option>
+                            <option value="">Revisão 120.000 km</option>
+                            <option style="color: white;">Sistema Elétrico</option>
+                            <option value="">Reparos no Sistema de Iluminação e Sinalização</option>
+                            <option value="">Reparos no Sistema de Carga (Alternador)</option>
+                            <option value="">Reparos no Sistema de Partida (Motor de Arranque)</option>
+                            <option value="">Troca de Baterias</option>
+                            <option value="">Fusíveis e Relés</option>
+                            <option value="">Travas e Vidros Elétricos</option>
+                            <option value="">Sensores de Estacionamento</option>
+                            <option value="">Regulagem de Faróis</option>
+                            <option value="">Confecção e Cópia de Chaves e Telecomando</option>
+                            <option style="color: white;">Suspensão</option>
+                            <option value="">Geometria e Balanceamento de Rodas</option>
+                            <option value="">Substituição de Molas, Amortecedores e Buchas</option>
+                            <option value="">Regulagem de Camber/Cáster e Convergência</option>
+                            <option value="">Montagem de Pneus</option>
+                            <option style="color: white;">Reparação e Estética</option>
+                            <option value="">Funilaria em Geral</option>
+                            <option value="">Recuperação de Parachoques</option>
+                            <option value="">Martelinho de Ouro</option>
+                            <option value="">Pintura Automotiva</option>
+                            <option value="">Revitalização de Pintura</option>
+                            <option value="">Revitalização de Plásticos Externos</option>
+                            <option value="">Revitalização de Plásticos Internos</option>
+                            <option value="">Pintura Automotiva Localizada</option>
+                            <option value="">Polimento Automotivo</option>
+                            <option value="">Pintura de Rodas</option>
+                            <option value="">Limpeza Ecológica</option>
+                            <option value="">Enceramento Wax</option>
+                            <option value="">Hidratação de Couro</option>
+                            <option value="">Impermeabilização dos Tecidos</option>
+                            <option value="">Oxi-Sanitização</option>
+                            <option value="">Higienização do Portamalas</option>
+                            <option value="">Cristalização de Pintura</option>
+                            <option value="">Espelhamento de Pintura</option>
+                            <option value="">Vitrificação de Pintura</option>
+                            <option value="">Vitrificação de Vidros</option>
+                            <option value="">Descontaminação de Pintura</option>
+                            <option value="">Polimento de Faróis</option>
+                            <option value="">Limpeza Técnica de Motor</option>
+                            <option value="">Higienização Interna</option>
+                            <option value="">Higienização de Ar-condicionado</option>
+                            <option value="">Remoção de Chuva Ácida</option>
+                            <option style="color: white;">Personalização</option>
+                            <option value="">PPF: Proteção de Pintura Veicular, com Película Protetora</option>
+                            <option value="">Envelopamento Profissional</option>
+                            <option value="">Caracterização, Personalização, Envelopamento de Frota</option>
+                            <option value="">Descaracterização de Frota e Remoção de Adesivo</option>
+                            <option value="">Substituição/Manutenção de Adesivos em Caso de Avarias</option>
+                        </select>
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Qual é a sua cidade?</label>
+                        <input type="text" class="medio" placeholder="Escreva...">
+                    </div>
+                    <div class="areaLabel">
+                        <label for="">Organizar a lista por?</label>
+                        <select name="" id="" class="pequeno">
+                            <option value="">Nome (a-z)</option>
+                            <option value="">Nome (z-a)</option>
+                            <option value="">Recomendação</option>
+                        </select>
+                    </div>
+            </form>
+
+            <div class="areaServicoEscolha">
+                <img src="./src/imagens/icon-img.png">
+                <label for="nome">Nome...</label>
+                <label for="descricao">Descrição...</label>
+            </div>
+
+            <div class="popBotoes">
+                <button class="popBtBuscar">Buscar</button>
+                <button class="popBtExcluir">Excluir</button>
+                <button class="popBtSalvar">Salvar</button>
+                <button class="popBtEditar">Editar</button>
+            </div>
+
+            <img src="./src/imagens/interrogacao.png" class="popupAjudar" onclick="abrirPopup('popErro')">
+            <img src="./src/imagens/limpar.png" class="popupLimpar" onclick="limparFormulario('areaPopServico')">
+            <img src="./src/imagens/fechar.png" class="popupFechar" onclick="fecharPopup('popServico')">
+        </div>
+
+        <div class="areaBusca">
+
+            <div class="tituloAbas">
+                <p>Resultado da Busca</p>
+            </div>
+
+            <button class="btnServicos">
+
+                <img src="./src/imagens/icon-img.png">
+
+                <div class="areaEstrelas">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cr.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                </div>
+                <div class="descricao">
+                    <label for="descricao">...</label>
+                </div>
+            </button>
+
+        </div>
+
+        <div class="areaRegistrados">
+
+            <div class="tituloAbas">
+                <p>Serviços Realizados</p>
+            </div>
+
+            <button class="btnServicos">
+
+                <img src="./src/imagens/icon-img.png">
+
+                <div class="areaEstrelas">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cr.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                    <img class="estrela" src="./src/imagens/icon-estrela-cz.png">
+                </div>
+                <div class="descricao">
+                    <label for="descricao">...</label>
+                </div>
+            </button>
+
+        </div>
+    </div>
+
+    <div id="popErro" class="fundoPopup" style="display: none;">
+
+        <div class="popErroArea">
+            <img class="popLogo" src="./src/imagens/logo-mycar.png" alt="">
+            <h2 class="popTitulo">Ocorreu um problema...</h2>
+            <p class="popTexto">Como nesse momento o sistema trata-se de um protótipo, algumas funções estão em
+                desenvolvimento.</p>
+
+            <div class="popMail">
+                <p>Se o problema persistir clique no botão de AJUDA. Caso não localize uma solução para a situação entre
+                    em
+                    contato conosco.</p>
+                <img src="./src/imagens/email.png" alt="">
+            </div>
+
+            <img src="./src/imagens/fechar.png" class="popupFechar" onclick="fecharPopup('popErro')">
+        </div>
+    </div>
+
+
+
+    <script src="./src/js/cliente.js"></script>
+
+</body>
+
+</html>

@@ -25,3 +25,14 @@ function mostrarConteudoDoMenu(menu){
     const conteudoMostrado = document.getElementById(idDoConteudoDaAba);
     conteudoMostrado.classList.add("selecionado");
 }
+
+
+function abrirPopup(id) {
+    document.getElementById('popupFundo').style.display = 'block';
+    document.getElementById(id).style.display = 'block';
+}
+
+function fecharPopup(id) {
+    document.getElementById('popupFundo').style.display = 'none';
+    document.getElementById(id).style.display = 'none';
+}
