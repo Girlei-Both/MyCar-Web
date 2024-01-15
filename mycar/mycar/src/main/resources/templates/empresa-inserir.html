@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-large">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Inserir Empresa</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formListaEmpresa}">
+                    <button class="btn btn-gray">Voltar</button>
+                </a>
+            </div>
+
+            <form action="#" th:action="@{/salvarEmpresa}" th:object="${empresa}" method="POST" class="card pd-medium">
+                <div class="card dpy-flex rd-medium pd-small">
+                    <div class="wd-full"> 
+                        <p>Tipo: <input type='text' th:field='*{tipo}' placeholder='Insira o tipo' class='wd-medium'/></p>
+                        <p>Nome: <input type='text' th:field='*{nome}' placeholder='Insira o nome' class='wd-large'/></p>
+                        <p>E-mail: <input type='text' th:field='*{email}' placeholder='Insira o e-mail' class='wd-large'/></p>
+                        <p>Site: <input type='text' th:field='*{site}' placeholder='Insira o site' class='wd-large'/></p>
+                        <p>CPF/CNPJ: <input type='text' th:field='*{cpf_cnpj}' placeholder='Insira o CPF ou CNPJ' class='wd-medium'/></p>
+                        <p>Data de abertura: <input type='text' th:field='*{data_abertura}' placeholder='Insira a data de abertura' class='wd-medium'/></p>
+                        <p>Inscrição estadual: <input type='text' th:field='*{inscr_estadual}' placeholder='Insira a inscrição estadual' class='wd-medium'/></p>
+                        <p>Telefone: <input type='text' th:field='*{telefone}' placeholder='Insira o telefone' class='wd-small'/></p>
+                        <p>Celular: <input type='text' th:field='*{celular}' placeholder='Insira o celular' class='wd-small'/></p>
+
+                    </div>
+                    <div class="wd-full"> 
+                        <p>Endereço: <input type='text' th:field='*{endereco}' placeholder='Insira o endereço' class='wd-large'/></p>
+                        <p>Número: <input type='text' th:field='*{numero}' placeholder='Insira o número' class='wd-small'/></p>
+                        <p>Bairro: <input type='text' th:field='*{bairro}' placeholder='Insira o bairro' class='wd-medium'/></p>
+                        <p>Cidade: <input type='text' th:field='*{cidade}' placeholder='Insira a cidade' class='wd-medium'/></p>
+                        <p>Estado: <input type='text' th:field='*{estado}' placeholder='Insira o estado' class='wd-small'/></p>
+                        <p>CEP: <input type='text' th:field='*{cep}' placeholder='Insira o CEP' class='wd-small'/></p>
+                        <p>Ativo: <input type='text' th:field='*{ativo}' placeholder='Insira sim ou não' class='wd-small'/></p>
+
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-green">Salvar</button>
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

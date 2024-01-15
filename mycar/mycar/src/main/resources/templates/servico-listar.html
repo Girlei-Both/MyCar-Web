@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-medium">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Lista de Serviços</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formInsereServico}">
+                    <button class="btn btn-blue">Novo Serviço</button>
+                </a>
+            </div>
+
+            <div th:each="servico : ${listarServicos}" class="card pd-medium">
+                <div class="crd-secondary dpy-flex rd-medium pd-small">
+                    <div class="wd-full"> 
+                        <p>Id: <label th:text="${servico.id}"></label></p>
+                        <p>Grupo: <label th:text="${servico.grupo}"></label></p>
+                        <p>Item: <label th:text="${servico.item}"></label></p>
+                        <p>Valor: <label th:text="${servico.valor}"></label></p>
+                    </div>
+                    <div class="wd-full"> 
+                        <p>Id do cliente: <label th:text="${servico.id_cliente}"></label></p>
+                        <p>Id da empresa: <label th:text="${servico.id_empresa}"></label></p>
+                        <p>Data de emissão: <label th:text="${servico.data_emissao}"></label></p>
+                    </div>
+                    <div class="wd-medium">
+                        <a th:href="@{/formAtualizaServico/{id}(id=${servico.id})}">
+                            <button class="btn btn-green">Atualizar</button>
+                        </a>
+                        <a th:href="@{/deletarServico/{id}(id=${servico.id})}">
+                            <button class="btn btn-red">Excluir</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

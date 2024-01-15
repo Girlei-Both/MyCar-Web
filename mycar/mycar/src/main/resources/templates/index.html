@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+        
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-small">
+            
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Home</h1>
+            
+            <h3 class="subtitulo">Clique nos botões abaixo e acesse os espaços de
+                <span>CLIENTES</span> e <span>EMPREEDEDORES</span>.
+            </h3>
+
+            
+            <div class="botoes">
+                
+                <a th:href="@{/formListaCliente}">
+                    <img src="/img/cliente.png"/>
+                </a>
+                
+                <a th:href="@{/formListaEmpreendedor}">
+                    <img src="/img/empreendedor.png"/>
+                </a>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

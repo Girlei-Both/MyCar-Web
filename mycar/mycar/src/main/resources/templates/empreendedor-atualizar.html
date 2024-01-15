@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-large">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Atualizar Empreendedor</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formListaEmpreendedor}">
+                    <button class="btn btn-gray">Voltar</button>
+                </a>
+            </div>
+
+            <form action="#" th:action="@{/salvarEmpreendedor}" th:object="${empreendedor}" method="POST" class="card pd-medium">
+                <div class="card dpy-flex rd-medium pd-small">
+                    <div class="wd-full">
+                        <input type="hidden" th:field="*{id}"/>
+                        <p>Tipo de empreendedor: <input type="text" th:field="*{tipo_emp}" placeholder="Insira o tipo de empreendedor" class="wd-small"/></p>
+                        <p>Nome: <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="wd-medium"/></p>
+                        <p>CPF: <input type="text" th:field="*{cpf}" placeholder="Insira o CPF" class="wd-small"/></p>
+                        <p>Data de cadastro: <input type="text" th:field="*{data_cadastro}" placeholder="Insira a data de cadastro" class="wd-small"/></p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-green">Atualizar</button>
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,204 @@
+/*Estilo dos cabeçalhos*/
+.logo{
+    width: 150px;
+}
+
+.titulo{
+    font-family: Nunito;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.subtitulo{
+    font-family: Nunito;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 30px;
+}
+
+.subtitulo span{
+    font-style: italic;
+    color: tomato;
+}
+
+/*Estilo dos botões*/
+.botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoes a{
+    padding: 15px;
+}
+
+.botoes img{
+    width: 250px;
+}
+
+.btn{
+    cursor: pointer;
+    border-style: solid;
+    color: white;
+    border-width: 1px;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 5px;
+    width: 100px;
+    height: 30px;
+}
+
+.btn:hover{
+    background-color: lightsalmon;
+    transform: scale(1.1);
+}
+
+.btn-black{
+    background-color: black;
+}
+
+.btn-green{
+    background-color: green;
+}
+
+.btn-blue{
+    background-color: blue;
+    width: 180px;
+    height: 35px;
+}
+
+.btn-red{
+    background-color: red;
+}
+
+.btn-gray{
+    background-color: lightgray;
+    color: black;
+}
+
+/*Estilo dos quadros externos*/
+.quadro{
+    background-color: snow;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+    padding: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    text-align: center;
+    height: 80%;
+    max-height: 80vh;
+}
+
+.qdr-small{
+    width: 50%;
+}
+
+.qdr-medium{
+    width: 60%;
+}
+
+.qdr-large{
+    width: 90%;
+}
+
+/*Estilo dos páginas*/
+.card{
+    text-align: center;
+    background-color: snow;
+}
+
+.crd-primary{
+    background-color: #FF914E;
+}
+
+.crd-secondary{
+    background-color: #D9D9D9;
+}
+
+.crd-tertiary{
+    background-color: #0A3876;
+}
+
+.card p{
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card label{
+    font-weight: normal;
+    font-style: italic;
+    font-size: 14px;
+    color: tomato;
+}
+
+.card input{
+    font-weight: normal;
+    font-size: 14px;
+    background-color: #ff914e;
+    border: none;
+    border-radius: 15px;
+    height: 20px;
+    padding: 5px;
+    box-shadow: 4px 4px 1px #D9D9D9;
+}
+
+.wd-small{
+    width: 20%;
+}
+
+.wd-medium{
+    width: 50%;
+}
+
+.wd-large{
+    width: 80%;
+}
+
+.wd-full{
+    width: 100%;
+}
+
+.rd-small{
+    border-radius: 5px;
+}
+
+.rd-medium{
+    border-radius: 20px;
+}
+
+.rd-large{
+    border-radius: 30px;
+}
+
+.pd-small{
+    padding: 5px;
+}
+
+.pd-medium{
+    padding: 20px;
+}
+
+.pd-large{
+    padding: 30px;
+}
+
+.mg-small{
+    margin: 5px;
+}
+
+.mg-medium{
+    margin: 20px;
+}
+
+.mg-large{
+    margin: 30px;
+}
+
+.dpy-flex{
+    display: flex;
+}

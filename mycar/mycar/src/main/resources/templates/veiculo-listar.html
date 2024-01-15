@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-medium">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Lista de Veiculos</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formListaCliente}">
+                    <button class="btn btn-gray">Voltar</button>
+                </a>
+                <a th:href="@{/formInsereVeiculo}">
+                    <button class="btn btn-blue">Novo Veiculo</button>
+                </a>
+                <a th:href="@{/formListaServico}">
+                    <button class="btn btn-blue">Ver Serviços</button>
+                </a>
+            </div>
+
+            <div th:each="veiculo : ${listarVeiculos}" class="card pd-medium">
+                <div class="crd-secondary dpy-flex rd-medium pd-small">
+                    <div class="wd-full"> 
+                        <p>Id: <label th:text="${veiculo.id}"></label></p>
+                        <p>Marca: <label th:text="${veiculo.marca}"></label></p>
+                        <p>Modelo: <label th:text="${veiculo.modelo}"></label></p>
+                        <p>Versão: <label th:text="${veiculo.versao}"></label></p>
+                        <p>Ano de fabricação: <label th:text="${veiculo.ano_fabricacao}"></label></p>
+                        <p>Ano do modelo: <label th:text="${veiculo.ano_modelo}"></label></p>
+                        <p>Placa: <label th:text="${veiculo.placa}"></label></p>
+                        <p>Renavam: <label th:text="${veiculo.renavam}"></label></p>
+                        <p>Chassis: <label th:text="${veiculo.chassis}"></label></p>
+                        <p>Código do motor: <label th:text="${veiculo.cod_motor}"></label></p>
+                        <p>Válvulas: <label th:text="${veiculo.valvulas}"></label></p>
+                    </div>
+                    <div class="wd-full"> 
+                        <p>Cilíndros: <label th:text="${veiculo.cilindros}"></label></p>
+                        <p>Cilindradas: <label th:text="${veiculo.cilindradas}"></label></p>
+                        <p>Tração: <label th:text="${veiculo.tracao}"></label></p>
+                        <p>Categoria: <label th:text="${veiculo.categoria}"></label></p>
+                        <p>Espécie: <label th:text="${veiculo.especie}"></label></p>
+                        <p>Tipo: <label th:text="${veiculo.tipo}"></label></p>
+                        <p>Cor: <label th:text="${veiculo.cor}"></label></p>
+                        <p>Combustível: <label th:text="${veiculo.combustivel}"></label></p>
+                        <p>Opcionais: <label th:text="${veiculo.opcionais}"></label></p>
+                        <p>Ativo: <label th:text="${veiculo.ativo}"></label></p>
+                    </div>
+                    <div class="wd-medium">
+                        <a th:href="@{/formAtualizaVeiculo/{id}(id=${veiculo.id})}">
+                            <button class="btn btn-green">Atualizar</button>
+                        </a>
+                        <a th:href="@{/deletarVeiculo/{id}(id=${veiculo.id})}">
+                            <button class="btn btn-red">Excluir</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

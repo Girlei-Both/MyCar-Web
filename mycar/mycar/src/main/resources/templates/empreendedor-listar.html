@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-medium">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Lista de Empreendedores</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formInsereEmpreendedor}">
+                    <button class="btn btn-blue">Novo Empreendedor</button>
+                </a>
+                <a th:href="@{/formListaEmpresa}">
+                    <button class="btn btn-blue">Ver Empresas</button>
+                </a>
+            </div>
+
+            <div th:each="empreendedor : ${listarEmpreendedores}" class="card pd-medium">
+                <div class="crd-secondary dpy-flex rd-medium pd-medium">
+                    <div class="wd-full"> 
+                        <p>Id: <label th:text="${empreendedor.id}"></label></p>
+                        <p>Tipo de empreendedor: <label th:text="${empreendedor.tipo_emp}"></label></p>
+                        <p>Nome: <label th:text="${empreendedor.nome}"></label></p>
+                        <p>CPF: <label th:text="${empreendedor.cpf}"></label></p>
+                        <p>Data de cadastro: <label th:text="${empreendedor.data_cadastro}"></label></p>
+                    </div>
+                    <div class="wd-small">
+                        <a th:href="@{/formAtualizaEmpreendedor/{id}(id=${empreendedor.id})}">
+                            <button class="btn btn-green">Atualizar</button>
+                        </a>
+                        <a th:href="@{/deletarEmpreendedor/{id}(id=${empreendedor.id})}">
+                            <button class="btn btn-red">Excluir</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-large">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Inserir Cliente</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formListaServico}">
+                    <button class="btn btn-gray">Voltar</button>
+                </a>
+            </div>
+
+            <form action="#" th:action="@{/salvarServico}" th:object="${servico}" method="POST" class="card pd-medium">
+                <div class="card dpy-flex rd-medium pd-small">
+                    <div class="wd-full"> 
+                        <p>Grupo: <input type="text" th:field="*{grupo}" placeholder="Insira o grupo" class="wd-large"/></p>
+                        <p>Item <input type="text" th:field="*{item}" placeholder="Insira o serviço" class="wd-large"/></p>
+                        <p>Valor: <input type="text" th:field="*{valor}" placeholder="Insira o valor" class="wd-small"/></p>
+                    </div>
+                    <div class="wd-full"> 
+                        <p>Id do cliente: <input type="text" th:field="*{id_cliente}" placeholder="Insira o id" class="wd-small"/></p>
+                        <p>Id da empresa: <input type="text" th:field="*{id_empresa}" placeholder="Insira o id" class="wd-small"/></p>
+                        <p>Data de emissão: <input type="text" th:field="*{data_emissao}" placeholder="Insira a data" class="wd-medium"/></p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-green">Salvar</button>
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

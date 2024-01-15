@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-large">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Inserir Veiculo</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formListaVeiculo}">
+                    <button class="btn btn-gray">Voltar</button>
+                </a>
+            </div>
+
+            <form action="#" th:action="@{/salvarVeiculo}" th:object="${veiculo}" method="POST" class="card pd-medium">
+                <div class="card dpy-flex rd-medium pd-small">
+                    <div class="wd-full"> 
+                        <p>Marca: <input type="text" th:field="*{marca}" placeholder="Insira a marca" class="wd-small"/></p>
+                        <p>Modelo: <input type="text" th:field="*{modelo}" placeholder="Insira o modelo" class="wd-small"/></p>
+                        <p>Versão: <input type="text" th:field="*{versao}" placeholder="Insira a versão" class="wd-small"/></p>
+                        <p>Ano de fabricação: <input type="text" th:field="*{ano_fabricacao}" placeholder="Insira o ano" class="wd-small"/></p>
+                        <p>Ano do modelo: <input type="text" th:field="*{ano_modelo}" placeholder="Insira o ano" class="wd-small"/></p>
+                        <p>Placa: <input type="text" th:field="*{placa}" placeholder="Insira a placa" class="wd-small"/></p>
+                        <p>Renavam: <input type="text" th:field="*{renavam}" placeholder="Insira o Renavam" class="wd-small"/></p>
+                        <p>Chassis: <input type="text" th:field="*{chassis}" placeholder="Insira o chassis" class="wd-small"/></p>
+                        <p>Código do motor: <input type="text" th:field="*{cod_motor}" placeholder="Insira código do motor" class="wd-medium"/></p>
+                        <p>Válvulas: <input type="text" th:field="*{valvulas}" placeholder="Insira as válvulas" class="wd-small"/></p>
+                    </div>
+                    <div class="wd-full"> 
+                        <p>Cilíndros: <input type="text" th:field="*{cilindros}" placeholder="Insira os cilíndros" class="wd-small"/></p>
+                        <p>Cilindradas: <input type="text" th:field="*{cilindradas}" placeholder="Insira as cilindradas" class="wd-small"/></p>
+                        <p>Tração: <input type="text" th:field="*{tracao}" placeholder="Insira a tração" class="wd-small"/></p>
+                        <p>Categoria: <input type="text" th:field="*{categoria}" placeholder="Insira a categoria" class="wd-medium"/></p>
+                        <p>Espécie: <input type="text" th:field="*{especie}" placeholder="Insira a espécie" class="wd-medium"/></p>
+                        <p>Tipo: <input type="text" th:field="*{tipo}" placeholder="Insira o tipo" class="wd-medium"/></p>
+                        <p>Cor: <input type="text" th:field="*{cor}" placeholder="Insira a cor" class="wd-small"/></p>
+                        <p>Combustível: <input type="text" th:field="*{combustivel}" placeholder="Insira o combustível" class="wd-small"/></p>
+                        <p>Opcionais: <input type="text" th:field="*{opcionais}" placeholder="Insira os opcionais" class="wd-medium"/></p>
+                        <p>Ativo: <input type="text" th:field="*{ativo}" placeholder="Insira sim ou não" class="wd-small"/></p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-green">Salvar</button>
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

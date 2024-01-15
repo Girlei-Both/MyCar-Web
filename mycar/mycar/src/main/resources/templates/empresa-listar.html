@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-medium">
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Lista de Empresas</h1>
+
+            <div class="botoes">
+                <a th:href="@{/}">
+                    <button class="btn btn-black">Home</button>
+                </a>
+                <a th:href="@{/formListaEmpreendedor}">
+                    <button class="btn btn-gray">Voltar</button>
+                </a>
+                <a th:href="@{/formInsereEmpresa}">
+                    <button class="btn btn-blue">Nova Empresa</button>
+                </a>
+                <a th:href="@{/formListaServico}">
+                    <button class="btn btn-blue">Ver Serviços</button>
+                </a>
+            </div>
+
+            <div th:each="empresa : ${listarEmpresas}" class="card pd-medium">
+                <div class="crd-secondary dpy-flex rd-medium pd-small">
+                    <div class="wd-full"> 
+                        <p>Id: <label th:text="${empresa.id}"></label></p>
+                        <p>Tipo: <label th:text="${empresa.tipo}"></label></p>
+                        <p>Nome: <label th:text="${empresa.nome}"></label></p>
+                        <p>E-mail: <label th:text="${empresa.email}"></label></p>
+                        <p>Site: <label th:text="${empresa.site}"></label></p>
+                        <p>CPF/CNPJ: <label th:text="${empresa.cpf_cnpj}"></label></p>
+                        <p>Data de abertura: <label th:text="${empresa.data_abertura}"></label></p>
+                        <p>Inscrição estadual: <label th:text="${empresa.inscr_estadual}"></label></p>
+                        <p>Telefone: <label th:text="${empresa.telefone}"></label></p>
+                        <p>Celular: <label th:text="${empresa.celular}"></label></p>
+                    </div>
+                    <div class="wd-full"> 
+                        <p>Endereço: <label th:text="${empresa.endereco}"></label></p>
+                        <p>Número: <label th:text="${empresa.numero}"></label></p>
+                        <p>Bairro: <label th:text="${empresa.bairro}"></label></p>
+                        <p>Cidade: <label th:text="${empresa.cidade}"></label></p>
+                        <p>Estado: <label th:text="${empresa.estado}"></label></p>
+                        <p>CEP: <label th:text="${empresa.cep}"></label></p>
+                        <p>Ativo: <label th:text="${empresa.ativo}"></label></p>
+                    </div>
+                    <div class="wd-medium">
+                        <a th:href="@{/formAtualizaEmpresa/{id}(id=${empresa.id})}">
+                            <button class="btn btn-green">Atualizar</button>
+                        </a>
+                        <a th:href="@{/deletarEmpresa/{id}(id=${empresa.id})}">
+                            <button class="btn btn-red">Excluir</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
