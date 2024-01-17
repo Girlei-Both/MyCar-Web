@@ -1,8 +1,8 @@
 package com.app.mycar.controller;
 
-
 import com.app.mycar.data.ClienteEntity;
 import com.app.mycar.service.ClienteService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +21,22 @@ public class ClienteWebControl {
 
     //1º - Abre a página onde LISTA todos os registros da base de dados
     @GetMapping("/formListaCliente")
-    public String formListaCliente(Model model) {
+    public String formListaCliente(Model model, HttpSession session) {
+
+        Object usuarioNaSessao = session.getAttribute("usuario");
+
+        if (usuarioNaSessao == null) {
+            return "redirect:/";
+        }
+
+        if (!"cliente".equals(usuarioNaSessao)) {
+            return "redirect:/acesso-negado";
+        }
+
         model.addAttribute("listarClientes", clienteService.getAllCliente());
         return "cliente-listar";
     }
-    
+
     //2º - Abre a página onde ADICIONA um novo registro
     @GetMapping("/formInsereCliente")
     public String formInsereCliente(Model model) {
@@ -33,7 +44,7 @@ public class ClienteWebControl {
         model.addAttribute("cliente", cliente);
         return "cliente-inserir";
     }
-    
+
     //3º - Abre a página onde ATUALIZA um registro
     @GetMapping("/formAtualizaCliente/{id}")
     public String formAtualizaCliente(@PathVariable(value = "id") Integer id, Model model) {
@@ -41,7 +52,7 @@ public class ClienteWebControl {
         model.addAttribute("cliente", cliente);
         return "cliente-atualizar";
     }
-    
+
     //4º - Ação que ADICIONA novo registro
     @PostMapping("/salvarCliente")
     public String salvarCliente(@Valid @ModelAttribute("cliente") ClienteEntity cliente, BindingResult result) {
@@ -55,12 +66,12 @@ public class ClienteWebControl {
         }
         return "redirect:/formListaCliente";
     }
-    
+
     //5º - Ação que DELETA um registro
     @GetMapping("/deletarCliente/{id}")
     public String deletarCliente(@PathVariable(value = "id") Integer id) {
         clienteService.deletCliente(id);
         return "redirect:/formListaCliente";
     }
-    
+
 }

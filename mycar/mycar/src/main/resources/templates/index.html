@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
-        
+
         <link rel="stylesheet" th:href="@{/css/reset.css}"/>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
 
@@ -18,27 +18,30 @@
     <body>
 
         <div class="quadro qdr-small">
-            
-            <img src="/img/mycar.png" class="logo"/>
-            <h1 class="titulo">Home</h1>
-            
-            <h3 class="subtitulo">Clique nos botões abaixo e acesse os espaços de
-                <span>CLIENTES</span> e <span>EMPREEDEDORES</span>.
-            </h3>
 
-            
-            <div class="botoes">
-                
-                <a th:href="@{/formListaCliente}">
-                    <img src="/img/cliente.png"/>
-                </a>
-                
-                <a th:href="@{/formListaEmpreendedor}">
-                    <img src="/img/empreendedor.png"/>
-                </a>
-            </div>
+            <a th:href="@{/}"><img src="/img/interrogacao.png" class="icon icn-ajuda"/></a>
+            <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Login</h1>
+
+            <form th:action="@{/autenticar}" method="POST" class="card pd-medium">
+                <div class="card rd-medium pd-small">
+                    <input type="hidden" name="tipo" id="tipoInput"/>
+                    <p>Usuário: <input type="text" name="usuario" placeholder="Insira o usuário" class="wd-medium"/></p>
+                    <p>Senha: <input type="password" name="senha" placeholder="Insira a senha" class="wd-medium"/></p>
+                    <div class="botoes">
+                        <a onclick="atualizarValorInput(1)"><img id="clienteImg" src="/img/cliente.png"/></a>
+                        <a onclick="atualizarValorInput(2)"><img id="empreendedorImg" src="/img/empreendedor.png"/></a>
+                    </div>
+                </div>
+                <button type="submit" value="Autenticar" class="btn btn-blue">Autenticar</button><br/>
+                <a th:href="@{/formInsereLogin}"><button class="btn btn-green">Novo Login</button></a>
+            </form>
 
         </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

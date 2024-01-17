@@ -1,4 +1,4 @@
-    package com.app.mycar.data;
+package com.app.mycar.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,18 +9,15 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Servico")
-public class ServicoEntity {
+@Table(name = "Login")
+public class LoginEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-    private String grupo;
-    private String item;
-    private String valor;
-    private String id_cliente;
-    private String id_empresa;
-    private String data_emissao;
+
+    private String usuario;
+    private String senha;
+    private String tipo;
 
 }

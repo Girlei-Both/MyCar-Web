@@ -28,12 +28,14 @@
     align-items: center;
 }
 
-.botoes a{
-    padding: 15px;
+.botoes img{
+    width: 140px;
+    cursor: pointer;
+    padding: 10px;
 }
 
-.botoes img{
-    width: 250px;
+.botoes img:hover{
+    transform: scale(1.1);
 }
 
 .btn{
@@ -147,6 +149,18 @@
     box-shadow: 4px 4px 1px #D9D9D9;
 }
 
+.card select{
+    font-weight: normal;
+    font-size: 14px;
+    background-color: #ff914e;
+    border: none;
+    border-radius: 15px;
+    height: 30px;
+    padding: 5px;
+    box-shadow: 4px 4px 1px #D9D9D9;
+    cursor: pointer;
+}
+
 .wd-small{
     width: 20%;
 }
@@ -202,3 +216,36 @@
 .dpy-flex{
     display: flex;
 }
+
+
+.icon{
+    width: 35px;
+    position: fixed;
+    cursor: pointer;
+}
+
+.icon:hover{
+    transform: scale(1.1);
+}
+
+.icn-home{
+    top: 1%;
+    left: 1%;
+}
+
+.icn-fechar{
+    top: 1%;
+    right: 1%;
+}
+
+.icn-ajuda{
+    bottom: 1%;
+    left: 1%;
+}
+
+.icn-limpar{
+    bottom: 1%;
+    right: 1%;
+}
+
+
