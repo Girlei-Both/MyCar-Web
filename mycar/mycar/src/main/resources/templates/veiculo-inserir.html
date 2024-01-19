@@ -17,7 +17,7 @@
 
     <body>
 
-        <div class="quadro qdr-medium" id="fundo">
+        <div class="quadro qdr-large" id="fundo">
 
             <a th:href="@{/clienteHomePage}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
             <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
@@ -29,36 +29,136 @@
             <div class="card pd-small">
                 <form action="#" th:action="@{/salvarVeiculo}" th:object="${veiculo}" method="POST" class="pd-medium">
                     <div class="dpy-flex rd-medium pd-small">
-                        <div class="wd-full"> 
-                            <p>Marca: <input type="text" th:field="*{marca}" placeholder="Insira a marca" class="wd-medium"/></p>
+                        <div class="wd-full">
+                            <p>Marca: <select th:field="*{marca}" class="wd-medium">
+                                    <option value="Abarth">Abarth</option>
+                                    <option value="Aiways">Aiways</option>
+                                    <option value="Alfa Romeo">Alfa Romeo</option>
+                                    <option value="Alpine">Alpine</option>
+                                    <option value="Aston Martin">Aston Martin</option>
+                                    <option value="Audi">Audi</option>
+                                    <option value="Bentley">Bentley</option>
+                                    <option value="BMW">BMW</option>
+                                    <option value="BYD">BYD</option>
+                                    <option value="Citroën">Citroën</option>
+                                    <option value="Cupra">Cupra</option>
+                                    <option value="Dacia">Dacia</option>
+                                    <option value="DS">DS</option>
+                                    <option value="Ferrari">Ferrari</option>
+                                    <option value="Fiat">Fiat</option>
+                                    <option value="Ford">Ford</option>
+                                    <option value="Honda">Honda</option>
+                                    <option value="Hyundai">Hyundai</option>
+                                    <option value="Jaguar">Jaguar</option>
+                                    <option value="JEEP">JEEP</option>
+                                    <option value="KIA">KIA</option>
+                                    <option value="Lamborghini">Lamborghini</option>
+                                    <option value="Land Rover">Land Rover</option>
+                                    <option value="Lexus">Lexus</option>
+                                    <option value="Lotus">Lotus</option>
+                                    <option value="Maserati">Maserati</option>
+                                    <option value="Mazda">Mazda</option>
+                                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MINI">MINI</option>
+                                    <option value="Mitsubishi">Mitsubishi</option>
+                                    <option value="Nissan">Nissan</option>
+                                    <option value="Opel">Opel</option>
+                                    <option value="Peugeot">Peugeot</option>
+                                    <option value="Polestar">Polestar</option>
+                                    <option value="Porsche">Porsche</option>
+                                    <option value="Renault">Renault</option>
+                                    <option value="SEAT">SEAT</option>
+                                    <option value="Škoda">Škoda</option>
+                                    <option value="Smart">Smart</option>
+                                    <option value="Suzuki">Suzuki</option>
+                                    <option value="TESLA">TESLA</option>
+                                    <option value="Toyota">Toyota</option>
+                                    <option value="Volkswagen">Volkswagen</option>
+                                    <option value="Volvo">Volvo</option>
+                                </select></p>
                             <p>Modelo: <input type="text" th:field="*{modelo}" placeholder="Insira o modelo" class="wd-medium"/></p>
                             <p>Versão: <input type="text" th:field="*{versao}" placeholder="Insira a versão" class="wd-small"/></p>
-                            <p>Ano de fabricação: <input type="date" th:field="*{ano_fabricacao}" placeholder="Insira o ano" class="wd-medium"/></p>
-                            <p>Ano do modelo: <input type="date" th:field="*{ano_modelo}" placeholder="Insira o ano" class="wd-medium"/></p>
-                            <p>Placa: <input type="text" th:field="*{placa}" placeholder="Insira a placa" class="wd-small"/></p>
+                            <p>Ano de fabricação: <input type="text" th:field="*{ano_fabricacao}" placeholder="Insira o ano" class="wd-small"/></p>
+                            <p>Ano do modelo: <input type="text" th:field="*{ano_modelo}" placeholder="Insira o ano" class="wd-small"/></p>
+                            <p>Placa: <input type="text" th:field="*{placa}" placeholder="Insira a placa" class="wd-medium"/></p>
                             <p>Renavam: <input type="text" th:field="*{renavam}" placeholder="Insira o Renavam" class="wd-medium"/></p>
+                        </div>
+                        <div class="wd-full"> 
                             <p>Chassis: <input type="text" th:field="*{chassis}" placeholder="Insira o chassis" class="wd-medium"/></p>
                             <p>Código do motor: <input type="text" th:field="*{cod_motor}" placeholder="Insira código do motor" class="wd-medium"/></p>
                             <p>Válvulas: <input type="text" th:field="*{valvulas}" placeholder="Insira as válvulas" class="wd-small"/></p>
-                        </div>
-                        <div class="wd-full"> 
                             <p>Cilíndros: <input type="text" th:field="*{cilindros}" placeholder="Insira os cilíndros" class="wd-small"/></p>
                             <p>Cilindradas: <input type="text" th:field="*{cilindradas}" placeholder="Insira as cilindradas" class="wd-small"/></p>
-                            <p>Tração: <input type="text" th:field="*{tracao}" placeholder="Insira a tração" class="wd-medium"/></p>
-                            <p>Categoria: <input type="text" th:field="*{categoria}" placeholder="Insira a categoria" class="wd-medium"/></p>
-                            <p>Espécie: <input type="text" th:field="*{especie}" placeholder="Insira a espécie" class="wd-large"/></p>
-                            <p>Tipo: <input type="text" th:field="*{tipo}" placeholder="Insira o tipo" class="wd-large"/></p>
                             <p>Cor: <input type="text" th:field="*{cor}" placeholder="Insira a cor" class="wd-medium"/></p>
-                            <p>Combustível: <input type="text" th:field="*{combustivel}" placeholder="Insira o combustível" class="wd-medium"/></p>
-                            <p>Opcionais: <input type="text" th:field="*{opcionais}" placeholder="Insira os opcionais" class="wd-medium"/></p>
-                            <p>Ativo: <input type="text" th:field="*{ativo}" placeholder="Insira sim ou não" class="wd-small"/></p>
+                            <p>Opcionais: <input type="" th:field="*{opcionais}" placeholder="Insira os opcionais" class="wd-medium"/></p>
+                        </div>
+                        <div class="wd-full"> 
+                            <p>Tração: <select th:field="*{tracao}" class="wd-medium">
+                                    <option value='Automotor'>Automotor</option>
+                                    <option value='Elétrico'>Elétrico</option>
+                                </select></p>
+                            <p>Categoria: <select th:field="*{categoria}" class="wd-medium">
+                                    <option value='Aluguel'>Aluguel</option>
+                                    <option value='Aprendizagem'>Aprendizagem</option>
+                                    <option value='Oficial'>Oficial</option>
+                                    <option value='Particular'>Particular</option>
+                                    <option value='Representação Diplomática'>Representação Diplomática</option>
+                                </select></p>
+                            <p>Espécie: <select th:field="*{especie}" class="wd-medium">
+                                    <option value='Carga'>Carga</option>
+                                    <option value='Coleção'>Coleção</option>
+                                    <option value='Competição'>Competição</option>
+                                    <option value='Especial'>Especial</option>
+                                    <option value='Misto'>Misto</option>
+                                    <option value='Passageiros'>Passageiros</option>
+                                    <option value='Tração'>Tração</option>
+                                </select></p>
+                            <p>Tipo: <select th:field="*{tipo}" class="wd-medium">
+                                    <option value='Automóvel'>Automóvel</option>
+                                    <option value='Bicicleta'>Bicicleta</option>
+                                    <option value='Caminhão'>Caminhão</option>
+                                    <option value='Caminhonete'>Caminhonete</option>
+                                    <option value='Camioneta'>Camioneta</option>
+                                    <option value='Ciclomotor'>Ciclomotor</option>
+                                    <option value='Conversível'>Conversível</option>
+                                    <option value='Coupé'>Coupé</option>
+                                    <option value='Hatch'>Hatch</option>
+                                    <option value='Jipe'>Jipe</option>
+                                    <option value='Micro-ônibus'>Micro-ônibus</option>
+                                    <option value='Minivan'>Minivan</option>
+                                    <option value='Motocicleta'>Motocicleta</option>
+                                    <option value='Motoneta'>Motoneta</option>
+                                    <option value='Ônibus'>Ônibus</option>
+                                    <option value='Perua'>Perua</option>
+                                    <option value='Pickup'>Pickup</option>
+                                    <option value='Quadriciclo'>Quadriciclo</option>
+                                    <option value='Reboque'>Reboque</option>
+                                    <option value='Sedan'>Sedan</option>
+                                    <option value='SUV'>SUV</option>
+                                    <option value='Trator'>Trator</option>
+                                    <option value='Triciclo'>Triciclo</option>
+                                    <option value='Utilitário'>Utilitário</option>
+                                    <option value='Van'>Van</option>
+                                </select></p>
+                            <p>Combustível: <select th:field="*{combustivel}" class="wd-medium">
+                                    <option value='Diesel'>Diesel</option>
+                                    <option value='Etanol'>Etanol</option>
+                                    <option value='Flex'>Flex</option>
+                                    <option value='Gasolina'>Gasolina</option>
+                                    <option value='GNV'>GNV</option>
+                                </select></p>
+                            <p>Ativo: <select th:field="*{ativo}" class="wd-small">
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select></p>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-green">Salvar</button>
                 </form>
             </div>
         </div>
-        
+
         <div id="popupAjuda" class="popup rd-medium pd-large">
             <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
             <img src="/img/mycar.png" class="logo"/>
@@ -71,7 +171,7 @@
         </div>
 
         <script th:src="@{/js/script.js}"></script>
-        
+
     </body>
 
 </html>

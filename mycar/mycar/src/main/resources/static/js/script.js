@@ -16,6 +16,7 @@ function atualizarValorInput(valor) {
     }
 }
 
+//LÓGICA PARA LIMPAR OS INPUTS
 function limparInputs() {
 
     var inputs = document.querySelectorAll('input');
@@ -27,8 +28,7 @@ function limparInputs() {
     select.selectedIndex = 0;
 }
 
-
-
+//LÓGICA PARA MOSTRAR POPUPS
 function mostrarPopup() {
     document.getElementById('popupAjuda').style.display = 'block';
     document.getElementById('fundo').style.opacity = "10%";
@@ -38,3 +38,8 @@ function fecharPopup() {
     document.getElementById('popupAjuda').style.display = 'none';
     document.getElementById('fundo').style.opacity = "100%";
 }
+
+//CONTROLE DESLIZANTE
+document.getElementById('range').addEventListener('input', function () {
+    document.getElementById('valorInput').textContent = this.value;
+});

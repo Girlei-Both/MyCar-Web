@@ -17,50 +17,97 @@
 
     <body>
 
-        <div class="quadro qdr-large">
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/formListaEmpresa}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
+            <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Atualizar Empresa</h1>
 
-            <div class="botoes">
-                <a th:href="@{/}">
-                    <button class="btn btn-black">Home</button>
-                </a>
-                <a th:href="@{/formListaEmpresa}">
-                    <button class="btn btn-gray">Voltar</button>
-                </a>
+            <div class="card pd-small">
+                <form action="#" th:action="@{/salvarEmpresa}" th:object="${empresa}" method="POST" class="pd-medium">
+                    <div class="dpy-flex rd-medium pd-small">
+                        <div class="wd-full">
+                            <input type="hidden" th:field="*{id}"/>
+                            <p>Tipo: <select th:field="*{tipo}" class="wd-large">
+                                    <option value="MEI">MEI: Microempreendedor Individual</option>
+                                    <option value="EI">EI: Empresário Individual</option>
+                                    <option value="SLU">SLU: Sociedade Limitada Unipessoal</option>
+                                    <option value="LTDA">LTDA: Sociedade Empresária Limitada</option>
+                                    <option value="SS">SS: Sociedade Simples</option>
+                                    <option value="SA">SA: Sociedade Anônima</option>
+                                </select></p>
+                            <p>Nome: <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="wd-large"/></p>
+                            <p>E-mail: <input type="text" th:field="*{email}" placeholder="Insira o e-mail" class="wd-large"/></p>
+                            <p>Site: <input type="text" th:field="*{site}" placeholder="Insira o site" class="wd-large"/></p>
+                            <p>CPF/CNPJ: <input type="text" th:field="*{cpf_cnpj}" placeholder="Insira o CPF ou CNPJ" class="wd-medium"/></p>
+                            <p>Data de abertura: <input type="date" th:field="*{data_abertura}" class="wd-medium"/></p>
+                            <p>Inscrição estadual: <input type="text" th:field="*{inscr_estadual}" placeholder="Insira a inscrição estadual" class="wd-medium"/></p>
+                            <p>Telefone: <input type="text" th:field="*{telefone}" placeholder="Insira o telefone" class="wd-medium"/></p>
+                            <p>Celular: <input type="text" th:field="*{celular}" placeholder="Insira o celular" class="wd-medium"/></p>
+                        </div>
+                        <div class="wd-full"> 
+                            <p>Endereço: <input type="text" th:field="*{endereco}" placeholder="Insira o endereço" class="wd-large"/></p>
+                            <p>Número: <input type="text" th:field="*{numero}" placeholder="Insira o número" class="wd-small"/></p>
+                            <p>Bairro: <input type="text" th:field="*{bairro}" placeholder="Insira o bairro" class="wd-medium"/></p>
+                            <p>Cidade: <input type="text" th:field="*{cidade}" placeholder="Insira a cidade" class="wd-medium"/></p>
+                            <p>Estado: <select th:field="*{estado}" class="wd-small">
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select></p>
+                            <p>CEP: <input type="text" th:field="*{cep}" placeholder="Insira o CEP" class="wd-small"/></p>
+                            <p>Ativo: <select th:field="*{ativo}" class="wd-small">
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select></p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-green">Atualizar</button>
+                </form>
+
             </div>
 
-            <form action="#" th:action="@{/salvarEmpresa}" th:object="${empresa}" method="POST" class="card pd-medium">
-                <div class="card dpy-flex rd-medium pd-small">
-                    <div class="wd-full">
-                        <input type="hidden" th:field="*{id}"/>
-                        <p>Tipo: <input type='text' th:field='*{tipo}' placeholder='Insira o tipo' class='wd-medium'/></p>
-                        <p>Nome: <input type='text' th:field='*{nome}' placeholder='Insira o nome' class='wd-large'/></p>
-                        <p>E-mail: <input type='text' th:field='*{email}' placeholder='Insira o e-mail' class='wd-large'/></p>
-                        <p>Site: <input type='text' th:field='*{site}' placeholder='Insira o site' class='wd-large'/></p>
-                        <p>CPF/CNPJ: <input type='text' th:field='*{cpf_cnpj}' placeholder='Insira o CPF ou CNPJ' class='wd-medium'/></p>
-                        <p>Data de abertura: <input type='text' th:field='*{data_abertura}' placeholder='Insira a data de abertura' class='wd-medium'/></p>
-                        <p>Inscrição estadual: <input type='text' th:field='*{inscr_estadual}' placeholder='Insira a inscrição estadual' class='wd-medium'/></p>
-                        <p>Telefone: <input type='text' th:field='*{telefone}' placeholder='Insira o telefone' class='wd-small'/></p>
-                        <p>Celular: <input type='text' th:field='*{celular}' placeholder='Insira o celular' class='wd-small'/></p>
-
-                    </div>
-                    <div class="wd-full"> 
-                        <p>Endereço: <input type='text' th:field='*{endereco}' placeholder='Insira o endereço' class='wd-large'/></p>
-                        <p>Número: <input type='text' th:field='*{numero}' placeholder='Insira o número' class='wd-small'/></p>
-                        <p>Bairro: <input type='text' th:field='*{bairro}' placeholder='Insira o bairro' class='wd-medium'/></p>
-                        <p>Cidade: <input type='text' th:field='*{cidade}' placeholder='Insira a cidade' class='wd-medium'/></p>
-                        <p>Estado: <input type='text' th:field='*{estado}' placeholder='Insira o estado' class='wd-small'/></p>
-                        <p>CEP: <input type='text' th:field='*{cep}' placeholder='Insira o CEP' class='wd-small'/></p>
-                        <p>Ativo: <input type='text' th:field='*{ativo}' placeholder='Insira sim ou não' class='wd-small'/></p>
-
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-green">Atualizar</button>
-            </form>
-
         </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de ATUALIZAR EMPRESA você pode atualizar os dados da(s) empresa(s) do usuário.<br/>
+                <span>- Campos obrigatórios:</span> Os campos com * são de preenchimento obrigatório.<br/>
+                <span>- Validações:</span> Fique atento as validações necessárias.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

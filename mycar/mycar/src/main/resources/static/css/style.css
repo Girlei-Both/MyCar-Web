@@ -181,6 +181,17 @@
     cursor: pointer;
 }
 
+.range{
+    font-weight: normal;
+    font-size: 14px;
+    background-color: #ff914e;
+    border: none;
+    border-radius: 15px;
+    height: 20px;
+    padding: 5px;
+    box-shadow: 4px 4px 1px #D9D9D9;
+}
+
 .wd-small{
     width: 20%;
 }
@@ -361,10 +372,10 @@
 
 .prf-lef{
     top: 20%;
-    left: 5%;
+    left: 4%;
 }
 
 .prf-rig{
     top: 20%;
-    right: 5%;
+    right: 4%;
 }

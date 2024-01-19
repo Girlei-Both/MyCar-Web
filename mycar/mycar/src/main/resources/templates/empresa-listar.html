@@ -17,62 +17,64 @@
 
     <body>
 
-        <div class="quadro qdr-medium">
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/empreendedorHomePage}"><img src="/img/home.png" class="icon icn-home"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Lista de Empresas</h1>
 
-            <div class="botoes">
-                <a th:href="@{/}">
-                    <button class="btn btn-black">Home</button>
-                </a>
-                <a th:href="@{/formListaEmpreendedor}">
-                    <button class="btn btn-gray">Voltar</button>
-                </a>
-                <a th:href="@{/formInsereEmpresa}">
-                    <button class="btn btn-blue">Nova Empresa</button>
-                </a>
-                <a th:href="@{/formListaServico}">
-                    <button class="btn btn-blue">Ver Serviços</button>
-                </a>
-            </div>
+            <div class="card pd-small">
+                <div th:each="empresa : ${listarEmpresas}" class="pd-medium">
+                    <div class="crd-secondary dpy-flex rd-medium pd-small">
+                        <div class="wd-full"> 
+                            <p>Id: <label th:text="${empresa.id}"></label></p>
+                            <p>Tipo: <label th:text="${empresa.tipo}"></label></p>
+                            <p>Nome: <label th:text="${empresa.nome}"></label></p>
+                            <p>E-mail: <label th:text="${empresa.email}"></label></p>
+                            <p>Site: <label th:text="${empresa.site}"></label></p>
+                            <p>CPF/CNPJ: <label th:text="${empresa.cpf_cnpj}"></label></p>
+                            <p>Data de abertura: <label th:text="${empresa.data_abertura}"></label></p>
+                            <p>Inscrição estadual: <label th:text="${empresa.inscr_estadual}"></label></p>
+                            <p>Telefone: <label th:text="${empresa.telefone}"></label></p>
+                            <p>Celular: <label th:text="${empresa.celular}"></label></p>
+                        </div>
+                        <div class="wd-full"> 
+                            <p>Endereço: <label th:text="${empresa.endereco}"></label></p>
+                            <p>Número: <label th:text="${empresa.numero}"></label></p>
+                            <p>Bairro: <label th:text="${empresa.bairro}"></label></p>
+                            <p>Cidade: <label th:text="${empresa.cidade}"></label></p>
+                            <p>Estado: <label th:text="${empresa.estado}"></label></p>
+                            <p>CEP: <label th:text="${empresa.cep}"></label></p>
+                            <p>Ativo: <label th:text="${empresa.ativo}"></label></p>
+                        </div>
+                        <div class="wd-medium">
+                            <a th:href="@{/formAtualizaEmpresa/{id}(id=${empresa.id})}">
+                                <button class="btn btn-green">Atualizar</button>
+                            </a>
+                            <a th:href="@{/deletarEmpresa/{id}(id=${empresa.id})}">
+                                <button class="btn btn-red">Excluir</button>
+                            </a>
+                        </div>
+                    </div>
 
-            <div th:each="empresa : ${listarEmpresas}" class="card pd-medium">
-                <div class="crd-secondary dpy-flex rd-medium pd-small">
-                    <div class="wd-full"> 
-                        <p>Id: <label th:text="${empresa.id}"></label></p>
-                        <p>Tipo: <label th:text="${empresa.tipo}"></label></p>
-                        <p>Nome: <label th:text="${empresa.nome}"></label></p>
-                        <p>E-mail: <label th:text="${empresa.email}"></label></p>
-                        <p>Site: <label th:text="${empresa.site}"></label></p>
-                        <p>CPF/CNPJ: <label th:text="${empresa.cpf_cnpj}"></label></p>
-                        <p>Data de abertura: <label th:text="${empresa.data_abertura}"></label></p>
-                        <p>Inscrição estadual: <label th:text="${empresa.inscr_estadual}"></label></p>
-                        <p>Telefone: <label th:text="${empresa.telefone}"></label></p>
-                        <p>Celular: <label th:text="${empresa.celular}"></label></p>
-                    </div>
-                    <div class="wd-full"> 
-                        <p>Endereço: <label th:text="${empresa.endereco}"></label></p>
-                        <p>Número: <label th:text="${empresa.numero}"></label></p>
-                        <p>Bairro: <label th:text="${empresa.bairro}"></label></p>
-                        <p>Cidade: <label th:text="${empresa.cidade}"></label></p>
-                        <p>Estado: <label th:text="${empresa.estado}"></label></p>
-                        <p>CEP: <label th:text="${empresa.cep}"></label></p>
-                        <p>Ativo: <label th:text="${empresa.ativo}"></label></p>
-                    </div>
-                    <div class="wd-medium">
-                        <a th:href="@{/formAtualizaEmpresa/{id}(id=${empresa.id})}">
-                            <button class="btn btn-green">Atualizar</button>
-                        </a>
-                        <a th:href="@{/deletarEmpresa/{id}(id=${empresa.id})}">
-                            <button class="btn btn-red">Excluir</button>
-                        </a>
-                    </div>
                 </div>
-
             </div>
-
         </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de LISTA DE EMPRESAS você pode visualizar os dados da(s) empresa(s) do usuário.<br/>
+                <span>- Atualizar:</span> Pode atualizar os dados do usuário.<br/>
+                <span>- Excluir:</span> Pode excluir o usuário do sistema.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

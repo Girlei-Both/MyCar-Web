@@ -17,33 +17,46 @@
 
     <body>
 
-        <div class="quadro qdr-large">
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/empreendedorHomePage}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
+            <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Inserir Empreendedor</h1>
 
-            <div class="botoes">
-                <a th:href="@{/}">
-                    <button class="btn btn-black">Home</button>
-                </a>
-                <a th:href="@{/formListaEmpreendedor}">
-                    <button class="btn btn-gray">Voltar</button>
-                </a>
-            </div>
-
             <form action="#" th:action="@{/salvarEmpreendedor}" th:object="${empreendedor}" method="POST" class="card pd-medium">
-                <div class="card dpy-flex rd-medium pd-small">
-                    <div class="wd-full"> 
-                        <p>Tipo de empreendedor: <input type="text" th:field="*{tipo_emp}" placeholder="Insira o tipo de empreendedor" class="wd-small"/></p>
+                <div class="dpy-flex rd-medium pd-small">
+                    <div class="wd-full">
+                        <p>Tipo de empreendedor: <select th:field="*{tipo_emp}" class="wd-small">
+                                <option value="Empresarial">Empresarial</option>
+                                <option value="Individual">Individual</option>
+                                <option value="Franquia">Franquia</option>
+                                <option value="Digital">Digital</option>
+                            </select></p>
                         <p>Nome: <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="wd-medium"/></p>
                         <p>CPF: <input type="text" th:field="*{cpf}" placeholder="Insira o CPF" class="wd-small"/></p>
-                        <p>Data de cadastro: <input type="text" th:field="*{data_cadastro}" placeholder="Insira a data de cadastro" class="wd-small"/></p>
+                        <p>Data de cadastro: <input type="date" th:field="*{data_cadastro}" class="wd-small"/></p>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-green">Salvar</button>
             </form>
 
         </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de INSERIR EMPREENDEDOR você pode adicionar um novo empresário ao usuário.<br/>
+                <span>- Campos obrigatórios:</span> Os campos com * são de preenchimento obrigatório.<br/>
+                <span>- Validações:</span> Fique atento as validações necessárias.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

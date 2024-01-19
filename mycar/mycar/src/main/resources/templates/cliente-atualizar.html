@@ -27,17 +27,17 @@
             <h1 class="titulo">Atualizar Cliente</h1>
 
             <form action="#" th:action="@{/salvarCliente}" th:object="${cliente}" method="POST" class="card pd-medium">
-                <div class="card dpy-flex rd-medium pd-small">
+                <div class="dpy-flex rd-medium pd-small">
                     <div class="wd-full">
                         <input type="hidden" th:field="*{id}"/>
                         <p>Nome:* <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="wd-large"/></p>
                         <p>E-mail:* <input type="text" th:field="*{email}" placeholder="Insira o e-mail" class="wd-large"/></p>
                         <p>CPF:* <input type="text" th:field="*{cpf}" placeholder="Insira o CPF" class="wd-medium"/></p>
-                        <p>Data de nascimento: <input type="date" th:field="*{data_nascimento}" placeholder="Insira a data de nascimento" class="wd-medium"/></p>
+                        <p>Data de nascimento: <input type="date" th:field="*{data_nascimento}" class="wd-medium"/></p>
                         <p>Gênero: <select th:field="*{genero}" class="wd-medium">
-                                <option value="1">Masculino</option>
-                                <option value="2">Feminino</option>
-                                <option value="2">Outro</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Outro">Outro</option>
                             </select></p>
                         <p>Telefone: <input type="text" th:field="*{telefone}" placeholder="Insira o telefone" class="wd-medium"/></p>
                         <p>Celular:* <input type="text" th:field="*{celular}" placeholder="Insira o celular" class="wd-medium"/></p>
@@ -47,9 +47,37 @@
                         <p>Número:* <input type="text" th:field="*{numero}" placeholder="Insira o número" class="wd-small"/></p>
                         <p>Bairro:* <input type="text" th:field="*{bairro}" placeholder="Insira o bairro" class="wd-medium"/></p>
                         <p>Cidade:* <input type="text" th:field="*{cidade}" placeholder="Insira a cidade" class="wd-medium"/></p>
-                        <p>Estado:* <input type="text" th:field="*{estado}" placeholder="Insira o estado" class="wd-small"/></p>
+                        <p>Estado: <select th:field="*{estado}" class="wd-small">
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select></p>
                         <p>CEP: <input type="text" th:field="*{cep}" placeholder="Insira o CEP" class="wd-small"/></p>
-                        <p>Data de cadastro: <input type="date" th:field="*{data_cadastro}" placeholder="Insira a data de cadastro" class="wd-medium"/></p>
+                        <p>Data de cadastro: <input type="date" th:field="*{data_cadastro}" class="wd-medium"/></p>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-green">Atualizar</button>
