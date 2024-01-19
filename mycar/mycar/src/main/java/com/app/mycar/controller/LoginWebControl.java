@@ -31,16 +31,15 @@ public class LoginWebControl {
         if (authenticatedUser != null) {
             session.setAttribute("usuario", authenticatedUser.getUsuario());
             if ("1".equals(loginEntity.getTipo())) {
-                return "redirect:/formListaCliente";
+                return "redirect:/clienteHomePage";
             } else if ("2".equals(loginEntity.getTipo())) {
-                return "redirect:/formListaEmpreendedor";
+                return "redirect:/empreendedorHomePage";
             } else {
-                // Valor inválido para "tipo", você pode lidar com isso como achar adequado
-                return "redirect:/";
+                return "redirect:/erroPage";
             }
         } else {
             model.addAttribute("mensagemErro", "Falha na autenticação. Verifique o usuário e senha.");
-            return "redirect:/";
+            return "redirect:/erroPage";
         }
     }
 

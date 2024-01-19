@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/}"><img src="/img/logoff.png" class="icon icn-logoff"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
+
+            <a th:href="@{/formListaCliente}"><img src="/img/iconperfil.png" class="perfil prf-lef btn-large pd-medium"/></a>
+            <a th:href="@{/formListaVeiculo}"><img src="/img/carro.png" class="perfil prf-rig btn-large pd-medium"/></a>
+            
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Home Cliente</h1>
+
+            <div class="pd-small">
+                <a th:href="@{/formInsereCliente}"><img src="/img/add-cliente.png" class="botao btn-large pd-medium"/></a>
+                <a th:href="@{/formInsereVeiculo}"><img src="/img/add-veiculo.png" class="botao btn-large pd-medium"/></a>
+            </div>
+            <div class="pd-small">
+                <a><img src="/img/add-servico.png" class="botao btn-large pd-medium opc"/></a>
+                <a><img src="/img/realtorios.png" class="botao btn-large pd-medium opc"/></a>
+                <a><img src="/img/mensagem.png" class="botao btn-large pd-medium opc"/></a>
+            </div>
+
+        </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de HOME CLIENTES você pode navegar pelas funções disponíveis no sistema.<br/>
+                <span>- Perfil:</span> Pode editar o perfil de usuário.<br/>
+                <span>- Adicionar Cliente:</span> Pode adicionar mais de um cliente para o mesmo usuário.<br/>
+                <span>- Adicionar Veículo:</span> Pode adicionar veículo(s) ao usuário logado.<br/>
+                <span>- Bloqueado!</span> As funções de 'Adicionar Serviços', 'Relatórios' e 'Mensagens' estão temporariamente bloqueadas.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
+
+    </body>
+
+</html>

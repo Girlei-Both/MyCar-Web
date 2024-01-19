@@ -34,12 +34,12 @@ public class LoginController {
             return new ResponseEntity<>("Falha na autenticação", HttpStatus.UNAUTHORIZED);
         }
     }
-    
+
     //2º - ADICIONAR novo registro
     @PostMapping("/adicionar")
     public ResponseEntity<LoginEntity> newLogin(@Valid @RequestBody LoginEntity login) {
         var novoLogin = loginService.newLogin(login);
         return new ResponseEntity<>(novoLogin, HttpStatus.CREATED);
     }
-    
+
 }

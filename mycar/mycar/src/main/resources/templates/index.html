@@ -17,16 +17,16 @@
 
     <body>
 
-        <div class="quadro qdr-small">
+        <div class="quadro qdr-small" id="fundo">
 
-            <a th:href="@{/}"><img src="/img/interrogacao.png" class="icon icn-ajuda"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
             <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Login</h1>
 
-            <form th:action="@{/autenticar}" method="POST" class="card pd-medium">
-                <div class="card rd-medium pd-small">
+            <form th:action="@{/autenticar}" method="POST" class="card pd-small">
+                <div class="rd-medium pd-small">
                     <input type="hidden" name="tipo" id="tipoInput"/>
                     <p>Usuário: <input type="text" name="usuario" placeholder="Insira o usuário" class="wd-medium"/></p>
                     <p>Senha: <input type="password" name="senha" placeholder="Insira a senha" class="wd-medium"/></p>
@@ -36,9 +36,20 @@
                     </div>
                 </div>
                 <button type="submit" value="Autenticar" class="btn btn-blue">Autenticar</button><br/>
-                <a th:href="@{/formInsereLogin}"><button class="btn btn-green">Novo Login</button></a>
             </form>
+            <a th:href="@{/formInsereLogin}"><button class="btn btn-green">Novo Login</button></a>
 
+        </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de LOGIN você deve preencher o campo "Usuário" e "Senha" e clicar no botão de acesso como "Cliente" ou "Empreendedor".<br/>
+                <span>- Usuário:</span> no máximo 100 caracteres e apenas letras.<br/>
+                <span>- Senha:</span> no máximo 20 caracteres e permite letras, números e caracteres especiais.
+            </p>
         </div>
 
         <script th:src="@{/js/script.js}"></script>

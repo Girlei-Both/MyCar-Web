@@ -17,45 +17,57 @@
 
     <body>
 
-        <div class="quadro qdr-large">
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/clienteHomePage}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
+            <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Inserir Cliente</h1>
 
-            <div class="botoes">
-                <a th:href="@{/}">
-                    <button class="btn btn-black">Home</button>
-                </a>
-                <a th:href="@{/formListaCliente}">
-                    <button class="btn btn-gray">Voltar</button>
-                </a>
-            </div>
-
             <form action="#" th:action="@{/salvarCliente}" th:object="${cliente}" method="POST" class="card pd-medium">
-                <div class="card dpy-flex rd-medium pd-small">
+                <div class="dpy-flex rd-medium pd-small">
                     <div class="wd-full"> 
-                        <p>Nome: <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="wd-large"/></p>
-                        <p>E-mail: <input type="text" th:field="*{email}" placeholder="Insira o e-mail" class="wd-large"/></p>
-                        <p>CPF: <input type="text" th:field="*{cpf}" placeholder="Insira o CPF" class="wd-medium"/></p>
-                        <p>Data de nascimento: <input type="text" th:field="*{data_nascimento}" placeholder="Insira a data de nascimento" class="wd-small"/></p>
-                        <p>Gênero: <input type="text" th:field="*{genero}" placeholder="Insira o gênero" class="wd-small"/></p>
-                        <p>Telefone: <input type="text" th:field="*{telefone}" placeholder="Insira o telefone" class="wd-small"/></p>
-                        <p>Celular: <input type="text" th:field="*{celular}" placeholder="Insira o celular" class="wd-small"/></p>
+                        <p>Nome:* <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="wd-large"/></p>
+                        <p>E-mail:* <input type="text" th:field="*{email}" placeholder="Insira o e-mail" class="wd-large"/></p>
+                        <p>CPF:* <input type="text" th:field="*{cpf}" placeholder="Insira o CPF" class="wd-medium"/></p>
+                        <p>Data de nascimento: <input type="date" th:field="*{data_nascimento}" placeholder="Insira a data de nascimento" class="wd-medium"/></p>
+                        <p>Gênero: <select th:field="*{genero}" class="wd-medium">
+                                <option value="1">Masculino</option>
+                                <option value="2">Feminino</option>
+                                <option value="2">Outro</option>
+                            </select></p>
+                        <p>Telefone: <input type="text" th:field="*{telefone}" placeholder="Insira o telefone" class="wd-medium"/></p>
+                        <p>Celular:* <input type="text" th:field="*{celular}" placeholder="Insira o celular" class="wd-medium"/></p>
                     </div>
                     <div class="wd-full"> 
-                        <p>Endereço: <input type="text" th:field="*{endereco}" placeholder="Insira o endereço" class="wd-large"/></p>
-                        <p>Número: <input type="text" th:field="*{numero}" placeholder="Insira o número" class="wd-small"/></p>
-                        <p>Bairro: <input type="text" th:field="*{bairro}" placeholder="Insira o bairro" class="wd-medium"/></p>
-                        <p>Cidade: <input type="text" th:field="*{cidade}" placeholder="Insira a cidade" class="wd-medium"/></p>
-                        <p>Estado: <input type="text" th:field="*{estado}" placeholder="Insira o estado" class="wd-small"/></p>
+                        <p>Endereço:* <input type="text" th:field="*{endereco}" placeholder="Insira o endereço" class="wd-medium"/></p>
+                        <p>Número:* <input type="text" th:field="*{numero}" placeholder="Insira o número" class="wd-small"/></p>
+                        <p>Bairro:* <input type="text" th:field="*{bairro}" placeholder="Insira o bairro" class="wd-medium"/></p>
+                        <p>Cidade:* <input type="text" th:field="*{cidade}" placeholder="Insira a cidade" class="wd-medium"/></p>
+                        <p>Estado:* <input type="text" th:field="*{estado}" placeholder="Insira o estado" class="wd-small"/></p>
                         <p>CEP: <input type="text" th:field="*{cep}" placeholder="Insira o CEP" class="wd-small"/></p>
-                        <p>Data de cadastro: <input type="text" th:field="*{data_cadastro}" placeholder="Insira a data de cadastro" class="wd-small"/></p>
+                        <p>Data de cadastro: <input type="date" th:field="*{data_cadastro}" placeholder="Insira a data de cadastro" class="wd-medium"/></p>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-green">Salvar</button>
             </form>
 
         </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de INSERIR CLIENTE você pode adicionar um novo cliente ao usuário.<br/>
+                <span>- Campos obrigatórios:</span> Os campos com * são de preenchimento obrigatório.<br/>
+                <span>- Validações:</span> Fique atento as validações necessárias.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

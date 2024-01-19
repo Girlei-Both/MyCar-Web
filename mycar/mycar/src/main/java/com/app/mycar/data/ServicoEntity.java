@@ -1,4 +1,4 @@
-    package com.app.mycar.data;
+package com.app.mycar.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +15,7 @@ public class ServicoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     private String grupo;
     private String item;
     private String valor;

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmpreendedorRepository extends JpaRepository<EmpreendedorEntity, Integer> {
-    
+
 }

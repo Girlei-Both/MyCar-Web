@@ -36,7 +36,7 @@ public class ClienteController {
         var novoCliente = clienteService.newCliente(cliente);
         return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
     }
-    
+
     //3º - Pesquisar por ID -> Usado para Deletar e Atualizar
     @GetMapping("/pesquisar/{id}")
     public ResponseEntity<ClienteEntity> getIdCliente(@PathVariable Integer id) {

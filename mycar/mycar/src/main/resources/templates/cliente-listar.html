@@ -17,57 +17,62 @@
 
     <body>
 
-        <div class="quadro qdr-medium">
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/clienteHomePage}"><img src="/img/home.png" class="icon icn-home"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Lista de Clientes</h1>
 
-            <div class="botoes">
-                <a th:href="@{/}">
-                    <button class="btn btn-black">Home</button>
-                </a>
-                <a th:href="@{/formInsereCliente}">
-                    <button class="btn btn-blue">Novo Cliente</button>
-                </a>
-                <a th:href="@{/formListaVeiculo}">
-                    <button class="btn btn-blue">Ver Veículos</button>
-                </a>
-            </div>
+            <div class="card pd-small">
+                <div th:each="cliente : ${listarClientes}" class="pd-medium">
+                    <div class="crd-secondary dpy-flex rd-medium pd-small">
+                        <div class="wd-full"> 
+                            <p>Id: <label th:text="${cliente.id}"></label></p>
+                            <p>Nome: <label th:text="${cliente.nome}"></label></p>
+                            <p>CPF: <label th:text="${cliente.cpf}"></label></p>
+                            <p>Data de nascimento: <label th:text="${cliente.data_nascimento}"></label></p>
+                            <p>Gênero: <label th:text="${cliente.genero}"></label></p>
+                            <p>Telefone: <label th:text="${cliente.telefone}"></label></p>
+                            <p>Celular: <label th:text="${cliente.celular}"></label></p>
+                            <p>E-mail: <label th:text="${cliente.email}"></label></p>
+                        </div>
+                        <div class="wd-full"> 
+                            <p>Endereço: <label th:text="${cliente.endereco}"></label></p>
+                            <p>Número: <label th:text="${cliente.numero}"></label></p>
+                            <p>Bairro: <label th:text="${cliente.bairro}"></label></p>
+                            <p>Cidade: <label th:text="${cliente.cidade}"></label></p>
+                            <p>Estado: <label th:text="${cliente.estado}"></label></p>
+                            <p>CEP: <label th:text="${cliente.cep}"></label></p>
+                            <p>Data de cadastro: <label th:text="${cliente.data_cadastro}"></label></p>
+                        </div>
+                        <div class="wd-medium">
+                            <a th:href="@{/formAtualizaCliente/{id}(id=${cliente.id})}">
+                                <button class="btn btn-green">Atualizar</button>
+                            </a>
+                            <a th:href="@{/deletarCliente/{id}(id=${cliente.id})}">
+                                <button class="btn btn-red">Excluir</button>
+                            </a>
+                        </div>
+                    </div>
 
-            <div th:each="cliente : ${listarClientes}" class="card pd-medium">
-                <div class="crd-secondary dpy-flex rd-medium pd-small">
-                    <div class="wd-full"> 
-                        <p>Id: <label th:text="${cliente.id}"></label></p>
-                        <p>Nome: <label th:text="${cliente.nome}"></label></p>
-                        <p>CPF: <label th:text="${cliente.cpf}"></label></p>
-                        <p>Data de nascimento: <label th:text="${cliente.data_nascimento}"></label></p>
-                        <p>Gênero: <label th:text="${cliente.genero}"></label></p>
-                        <p>Telefone: <label th:text="${cliente.telefone}"></label></p>
-                        <p>Celular: <label th:text="${cliente.celular}"></label></p>
-                        <p>E-mail: <label th:text="${cliente.email}"></label></p>
-                    </div>
-                    <div class="wd-full"> 
-                        <p>Endereço: <label th:text="${cliente.endereco}"></label></p>
-                        <p>Número: <label th:text="${cliente.numero}"></label></p>
-                        <p>Bairro: <label th:text="${cliente.bairro}"></label></p>
-                        <p>Cidade: <label th:text="${cliente.cidade}"></label></p>
-                        <p>Estado: <label th:text="${cliente.estado}"></label></p>
-                        <p>CEP: <label th:text="${cliente.cep}"></label></p>
-                        <p>Data de cadastro: <label th:text="${cliente.data_cadastro}"></label></p>
-                    </div>
-                    <div class="wd-medium">
-                        <a th:href="@{/formAtualizaCliente/{id}(id=${cliente.id})}">
-                            <button class="btn btn-green">Atualizar</button>
-                        </a>
-                        <a th:href="@{/deletarCliente/{id}(id=${cliente.id})}">
-                            <button class="btn btn-red">Excluir</button>
-                        </a>
-                    </div>
                 </div>
-
             </div>
-
         </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de LISTA DE CLIENTES você pode visualizar os dados de usuário.<br/>
+                <span>- Atualizar:</span> Pode atualizar os dados do usuário.<br/>
+                <span>- Excluir:</span> Pode excluir o usuário do sistema.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

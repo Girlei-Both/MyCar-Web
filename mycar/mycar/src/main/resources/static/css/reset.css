@@ -36,6 +36,11 @@ select{
     padding: 0px;
 }
 
+span{
+    font-style: italic;
+    color: tomato;
+}
+
 
 
 /*Estilo da Barra de rolagem*/

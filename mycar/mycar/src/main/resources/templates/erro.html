@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>Gerenciamento do App MyCar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Numans&family=Nunito&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+
+    <body>
+
+        <div class="quadro qdr-small">
+
+            <a th:href="@{/}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
+
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo">Ocorreu um problema...</h1>
+
+            <div class="card rd-medium pd-medium">
+
+                <div class="mensagem crd-secondary">
+                    <p class="text tex-medium">Verificamos um erro na ação realizada, por favor, tente novamente!</p>
+                </div>
+
+                <div class="ajuda">
+                    <p>Se o problema persistir clique no botão de AJUDA. Caso não localize uma solução para a situação entre em contato conosco.</p>
+                    <img src="/img/email.png"/>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
+
+    </body>
+
+</html>

@@ -14,17 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class EmpreendedorWebControl {
-    
+
     @Autowired
     EmpreendedorService empreendedorService;
-    
+
     //1º - Abre a página onde LISTA todos os registros da base de dados
     @GetMapping("/formListaEmpreendedor")
     public String formListaEmpreendedor(Model model) {
         model.addAttribute("listarEmpreendedores", empreendedorService.getAllEmpreendedor());
         return "empreendedor-listar";
     }
-    
+
     //2º - Abre a página onde ADICIONA um novo registro
     @GetMapping("/formInsereEmpreendedor")
     public String formInsereEmpreendedor(Model model) {
@@ -32,7 +32,7 @@ public class EmpreendedorWebControl {
         model.addAttribute("empreendedor", empreendedor);
         return "empreendedor-inserir";
     }
-    
+
     //3º - Abre a página onde ATUALIZA um registro
     @GetMapping("/formAtualizaEmpreendedor/{id}")
     public String formAtualizaEmpreendedor(@PathVariable(value = "id") Integer id, Model model) {
@@ -40,7 +40,7 @@ public class EmpreendedorWebControl {
         model.addAttribute("empreendedor", empreendedor);
         return "empreendedor-atualizar";
     }
-    
+
     //4º - Ação que ADICIONA novo registro
     @PostMapping("/salvarEmpreendedor")
     public String salvarEmpreendedor(@Valid @ModelAttribute("empreendedor") EmpreendedorEntity empreendedor, BindingResult result) {
@@ -54,12 +54,12 @@ public class EmpreendedorWebControl {
         }
         return "redirect:/formListaEmpreendedor";
     }
-    
+
     //5º - Ação que DELETA um registro
     @GetMapping("/deletarEmpreendedor/{id}")
     public String deletarEmpreendedor(@PathVariable(value = "id") Integer id) {
         empreendedorService.deletEmpreendedor(id);
         return "redirect:/formListaEmpreendedor";
     }
-    
+
 }

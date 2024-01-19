@@ -17,52 +17,62 @@
 
     <body>
 
-        <div class="quadro qdr-large">
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/formListaVeiculo}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
+            <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Atualizar Veiculo</h1>
 
-            <div class="botoes">
-                <a th:href="@{/}">
-                    <button class="btn btn-black">Home</button>
-                </a>
-                <a th:href="@{/formListaVeiculo}">
-                    <button class="btn btn-gray">Voltar</button>
-                </a>
+            <div class="card pd-small">
+                <form action="#" th:action="@{/salvarVeiculo}" th:object="${veiculo}" method="POST" class="pd-medium">
+                    <div class="dpy-flex rd-medium pd-small">
+                        <div class="wd-full">
+                            <input type="hidden" th:field="*{id}"/>
+                            <p>Marca: <input type="text" th:field="*{marca}" placeholder="Insira a marca" class="wd-medium"/></p>
+                            <p>Modelo: <input type="text" th:field="*{modelo}" placeholder="Insira o modelo" class="wd-medium"/></p>
+                            <p>Versão: <input type="text" th:field="*{versao}" placeholder="Insira a versão" class="wd-small"/></p>
+                            <p>Ano de fabricação: <input type="date" th:field="*{ano_fabricacao}" placeholder="Insira o ano" class="wd-medium"/></p>
+                            <p>Ano do modelo: <input type="date" th:field="*{ano_modelo}" placeholder="Insira o ano" class="wd-medium"/></p>
+                            <p>Placa: <input type="text" th:field="*{placa}" placeholder="Insira a placa" class="wd-small"/></p>
+                            <p>Renavam: <input type="text" th:field="*{renavam}" placeholder="Insira o Renavam" class="wd-medium"/></p>
+                            <p>Chassis: <input type="text" th:field="*{chassis}" placeholder="Insira o chassis" class="wd-medium"/></p>
+                            <p>Código do motor: <input type="text" th:field="*{cod_motor}" placeholder="Insira código do motor" class="wd-medium"/></p>
+                            <p>Válvulas: <input type="text" th:field="*{valvulas}" placeholder="Insira as válvulas" class="wd-small"/></p>
+                        </div>
+                        <div class="wd-full"> 
+                            <p>Cilíndros: <input type="text" th:field="*{cilindros}" placeholder="Insira os cilíndros" class="wd-small"/></p>
+                            <p>Cilindradas: <input type="text" th:field="*{cilindradas}" placeholder="Insira as cilindradas" class="wd-small"/></p>
+                            <p>Tração: <input type="text" th:field="*{tracao}" placeholder="Insira a tração" class="wd-medium"/></p>
+                            <p>Categoria: <input type="text" th:field="*{categoria}" placeholder="Insira a categoria" class="wd-medium"/></p>
+                            <p>Espécie: <input type="text" th:field="*{especie}" placeholder="Insira a espécie" class="wd-large"/></p>
+                            <p>Tipo: <input type="text" th:field="*{tipo}" placeholder="Insira o tipo" class="wd-large"/></p>
+                            <p>Cor: <input type="text" th:field="*{cor}" placeholder="Insira a cor" class="wd-medium"/></p>
+                            <p>Combustível: <input type="text" th:field="*{combustivel}" placeholder="Insira o combustível" class="wd-medium"/></p>
+                            <p>Opcionais: <input type="text" th:field="*{opcionais}" placeholder="Insira os opcionais" class="wd-medium"/></p>
+                            <p>Ativo: <input type="text" th:field="*{ativo}" placeholder="Insira sim ou não" class="wd-small"/></p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-green">Atualizar</button>
+                </form>
+
             </div>
-
-            <form action="#" th:action="@{/salvarVeiculo}" th:object="${veiculo}" method="POST" class="card pd-medium">
-                <div class="card dpy-flex rd-medium pd-small">
-                    <div class="wd-full">
-                        <input type="hidden" th:field="*{id}"/>
-                        <p>Marca: <input type="text" th:field="*{marca}" placeholder="Insira a marca" class="wd-small"/></p>
-                        <p>Modelo: <input type="text" th:field="*{modelo}" placeholder="Insira o modelo" class="wd-small"/></p>
-                        <p>Versão: <input type="text" th:field="*{versao}" placeholder="Insira a versão" class="wd-small"/></p>
-                        <p>Ano de fabricação: <input type="text" th:field="*{ano_fabricacao}" placeholder="Insira o ano" class="wd-small"/></p>
-                        <p>Ano do modelo: <input type="text" th:field="*{ano_modelo}" placeholder="Insira o ano" class="wd-small"/></p>
-                        <p>Placa: <input type="text" th:field="*{placa}" placeholder="Insira a placa" class="wd-small"/></p>
-                        <p>Renavam: <input type="text" th:field="*{renavam}" placeholder="Insira o Renavam" class="wd-small"/></p>
-                        <p>Chassis: <input type="text" th:field="*{chassis}" placeholder="Insira o chassis" class="wd-small"/></p>
-                        <p>Código do motor: <input type="text" th:field="*{cod_motor}" placeholder="Insira código do motor" class="wd-medium"/></p>
-                        <p>Válvulas: <input type="text" th:field="*{valvulas}" placeholder="Insira as válvulas" class="wd-small"/></p>
-                    </div>
-                    <div class="wd-full"> 
-                        <p>Cilíndros: <input type="text" th:field="*{cilindros}" placeholder="Insira os cilíndros" class="wd-small"/></p>
-                        <p>Cilindradas: <input type="text" th:field="*{cilindradas}" placeholder="Insira as cilindradas" class="wd-small"/></p>
-                        <p>Tração: <input type="text" th:field="*{tracao}" placeholder="Insira a tração" class="wd-small"/></p>
-                        <p>Categoria: <input type="text" th:field="*{categoria}" placeholder="Insira a categoria" class="wd-medium"/></p>
-                        <p>Espécie: <input type="text" th:field="*{especie}" placeholder="Insira a espécie" class="wd-medium"/></p>
-                        <p>Tipo: <input type="text" th:field="*{tipo}" placeholder="Insira o tipo" class="wd-medium"/></p>
-                        <p>Cor: <input type="text" th:field="*{cor}" placeholder="Insira a cor" class="wd-small"/></p>
-                        <p>Combustível: <input type="text" th:field="*{combustivel}" placeholder="Insira o combustível" class="wd-small"/></p>
-                        <p>Opcionais: <input type="text" th:field="*{opcionais}" placeholder="Insira os opcionais" class="wd-medium"/></p>
-                        <p>Ativo: <input type="text" th:field="*{ativo}" placeholder="Insira sim ou não" class="wd-small"/></p>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-green">Atualizar</button>
-            </form>
-
         </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de ATUALIZAR VEÍCULO você pode atualizar os dados do(s) veículo(s) do usuário.<br/>
+                <span>- Campos obrigatórios:</span> Os campos com * são de preenchimento obrigatório.<br/>
+                <span>- Validações:</span> Fique atento as validações necessárias.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

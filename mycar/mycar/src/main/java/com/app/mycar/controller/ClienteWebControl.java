@@ -21,18 +21,7 @@ public class ClienteWebControl {
 
     //1º - Abre a página onde LISTA todos os registros da base de dados
     @GetMapping("/formListaCliente")
-    public String formListaCliente(Model model, HttpSession session) {
-
-        Object usuarioNaSessao = session.getAttribute("usuario");
-
-        if (usuarioNaSessao == null) {
-            return "redirect:/";
-        }
-
-        if (!"cliente".equals(usuarioNaSessao)) {
-            return "redirect:/acesso-negado";
-        }
-
+    public String formListaCliente(Model model) {
         model.addAttribute("listarClientes", clienteService.getAllCliente());
         return "cliente-listar";
     }

@@ -17,18 +17,16 @@
 
     <body>
 
-        <div class="quadro qdr-small">
+        <div class="quadro qdr-small" id="fundo">
 
             <a th:href="@{/}"><img src="/img/home.png" class="icon icn-home"/></a>
-            <a th:href="@{/}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
-            <a th:href="@{/}"><img src="/img/interrogacao.png" class="icon icn-ajuda"/></a>
-            <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Inserir Usuário</h1>
 
             <form action="#" th:action="@{/salvarLogin}" th:object="${login}" method="POST" class="card pd-large">
-                <div class="card dpy-flex rd-medium pd-small">
+                <div class="dpy-flex rd-medium pd-small">
                     <div class="wd-full">
                         <p>Usuario: <input type="text" th:field="*{usuario}" placeholder="Insira o usuário" class="wd-medium"/></p>
                         <p>Senha: <input type="text" th:field="*{senha}" placeholder="Insira a senha" class="wd-medium"/></p>
@@ -43,6 +41,17 @@
                 <button type="submit" class="btn btn-green">Salvar</button>
             </form>
 
+        </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de INSERIR USUÁRIO você deve preencher o campo "Usuário" e "Senha" e escolher o tipo de acesso como "Cliente" ou "Empreendedor".<br/>
+                <span>- Usuário:</span> no máximo 100 caracteres e apenas letras.<br/>
+                <span>- Senha:</span> no máximo 20 caracteres e permite letras, números e caracteres especiais.
+            </p>
         </div>
 
         <script th:src="@{/js/script.js}"></script>

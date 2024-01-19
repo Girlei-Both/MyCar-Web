@@ -61,5 +61,5 @@ public class VeiculoWebControl {
         veiculoService.deletVeiculo(id);
         return "redirect:/formListaVeiculo";
     }
-    
+
 }

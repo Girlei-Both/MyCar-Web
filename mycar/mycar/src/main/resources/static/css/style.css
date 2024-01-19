@@ -16,11 +16,6 @@
     margin: 30px;
 }
 
-.subtitulo span{
-    font-style: italic;
-    color: tomato;
-}
-
 /*Estilo dos botões*/
 .botoes{
     display: flex;
@@ -38,6 +33,14 @@
     transform: scale(1.1);
 }
 
+.botao{
+    cursor: pointer;
+}
+
+.botao:hover{
+    transform: scale(1.1);
+}
+
 .btn{
     cursor: pointer;
     border-style: solid;
@@ -48,6 +51,18 @@
     padding: 5px;
     width: 100px;
     height: 30px;
+}
+
+.btn-small{
+    width: 30px;
+}
+
+.btn-medium{
+    width: 90px;
+}
+
+.btn-large{
+    width: 140px;
 }
 
 .btn:hover{
@@ -89,7 +104,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow-y: auto;
     text-align: center;
     height: 80%;
     max-height: 80vh;
@@ -111,6 +125,8 @@
 .card{
     text-align: center;
     background-color: snow;
+    overflow: auto;
+    height: 340px;
 }
 
 .crd-primary{
@@ -123,6 +139,10 @@
 
 .crd-tertiary{
     background-color: #0A3876;
+}
+
+.crd-white{
+    background-color: snow;
 }
 
 .card p{
@@ -177,7 +197,19 @@
     width: 100%;
 }
 
-.rd-small{
+.hd-small{
+    height: 50px;
+}
+
+.hd-medium{
+    width: 100px;
+}
+
+.hd-large{
+    width: 150px;
+}
+
+.hd-small{
     border-radius: 5px;
 }
 
@@ -222,6 +254,7 @@
     width: 35px;
     position: fixed;
     cursor: pointer;
+    overflow-y: auto;
 }
 
 .icon:hover{
@@ -238,6 +271,11 @@
     right: 1%;
 }
 
+.icn-logoff{
+    top: 1%;
+    left: 1%;
+}
+
 .icn-ajuda{
     bottom: 1%;
     left: 1%;
@@ -248,4 +286,85 @@
     right: 1%;
 }
 
+.text{
+    font-family: Nunito;
+    font-weight: normal;
+    margin: 20px;
+}
 
+.tex-small{
+    font-size: 18px;
+}
+
+.tex-medium{
+    font-size: 30px;
+}
+
+.tex-large{
+    font-size: 40px;
+}
+
+.mensagem{
+    border-radius: 20px;
+    padding: 30px;
+    height: 200px;
+}
+
+.mensagem p{
+    font-size: 25px;
+}
+
+.ajuda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    padding: 30px;
+    bottom: 1%;
+    left: 1%;
+}
+
+.ajuda img{
+    width: 70px;
+    cursor: pointer;
+}
+
+.ajuda img:hover{
+    transform: scale(1.1);
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    text-align: center;
+    width: 700px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightseagreen;
+    box-shadow: 0 4px 4px gray;
+}
+
+.opc{
+    opacity: 50%;
+}
+
+.perfil{
+    position: fixed;
+    cursor: pointer;
+}
+
+.perfil:hover{
+    transform: scale(1.1);
+}
+
+.prf-lef{
+    top: 20%;
+    left: 5%;
+}
+
+.prf-rig{
+    top: 20%;
+    right: 5%;
+}
