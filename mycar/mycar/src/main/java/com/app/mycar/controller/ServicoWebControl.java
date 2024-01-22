@@ -2,6 +2,7 @@ package com.app.mycar.controller;
 
 import com.app.mycar.data.ServicoEntity;
 import com.app.mycar.service.ServicoService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,25 +21,40 @@ public class ServicoWebControl {
 
     //1º - Abre a página onde LISTA todos os registros da base de dados
     @GetMapping("/formListaServico")
-    public String formListaServico(Model model) {
-        model.addAttribute("listarServicos", servicoService.getAllServico());
-        return "servico-listar";
+    public String formListaServico(Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        if ("2".equals(tipoUsuario)) {
+            model.addAttribute("listarServicos", servicoService.getAllServico());
+            return "servico-listar";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //2º - Abre a página onde ADICIONA um novo registro
     @GetMapping("/formInsereServico")
-    public String formInsereServico(Model model) {
-        ServicoEntity servico = new ServicoEntity();
-        model.addAttribute("servico", servico);
-        return "servico-inserir";
+    public String formInsereServico(Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        if ("2".equals(tipoUsuario)) {
+            ServicoEntity servico = new ServicoEntity();
+            model.addAttribute("servico", servico);
+            return "servico-inserir";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //3º - Abre a página onde ATUALIZA um registro
     @GetMapping("/formAtualizaServico/{id}")
-    public String formAtualizaServico(@PathVariable(value = "id") Integer id, Model model) {
-        ServicoEntity servico = servicoService.getIdServico(id);
-        model.addAttribute("servico", servico);
-        return "servico-atualizar";
+    public String formAtualizaServico(@PathVariable(value = "id") Integer id, Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        if ("2".equals(tipoUsuario)) {
+            ServicoEntity servico = servicoService.getIdServico(id);
+            model.addAttribute("servico", servico);
+            return "servico-atualizar";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //4º - Ação que ADICIONA novo registro

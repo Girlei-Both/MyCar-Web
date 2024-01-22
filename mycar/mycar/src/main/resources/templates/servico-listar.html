@@ -17,46 +17,53 @@
 
     <body>
 
-        <div class="quadro qdr-medium">
+        <div class="quadro qdr-medium" id="fundo">
+
+            <a th:href="@{/empreendedorHomePage}"><img src="/img/fechar.png" class="icon icn-fechar"/></a>
+            <a><img src="/img/interrogacao.png" class="icon icn-ajuda" id="ajudaBtn" onclick="mostrarPopup()"/></a>
+            <a onclick="limparInputs()"><img src="/img/limpar.png" class="icon icn-limpar"/></a>
 
             <img src="/img/mycar.png" class="logo"/>
             <h1 class="titulo">Lista de Serviços</h1>
 
-            <div class="botoes">
-                <a th:href="@{/}">
-                    <button class="btn btn-black">Home</button>
-                </a>
-                <a th:href="@{/formInsereServico}">
-                    <button class="btn btn-blue">Novo Serviço</button>
-                </a>
-            </div>
-
-            <div th:each="servico : ${listarServicos}" class="card pd-medium">
-                <div class="crd-secondary dpy-flex rd-medium pd-small">
-                    <div class="wd-full"> 
-                        <p>Id: <label th:text="${servico.id}"></label></p>
-                        <p>Grupo: <label th:text="${servico.grupo}"></label></p>
-                        <p>Item: <label th:text="${servico.item}"></label></p>
-                        <p>Valor: <label th:text="${servico.valor}"></label></p>
-                    </div>
-                    <div class="wd-full"> 
-                        <p>Id do cliente: <label th:text="${servico.id_cliente}"></label></p>
-                        <p>Id da empresa: <label th:text="${servico.id_empresa}"></label></p>
-                        <p>Data de emissão: <label th:text="${servico.data_emissao}"></label></p>
-                    </div>
-                    <div class="wd-medium">
-                        <a th:href="@{/formAtualizaServico/{id}(id=${servico.id})}">
-                            <button class="btn btn-green">Atualizar</button>
-                        </a>
-                        <a th:href="@{/deletarServico/{id}(id=${servico.id})}">
-                            <button class="btn btn-red">Excluir</button>
-                        </a>
+            <div class="card pd-small">
+                <div th:each="servico : ${listarServicos}" class="pd-medium">
+                    <div class="crd-secondary dpy-flex rd-medium pd-small">
+                        <div class="wd-full"> 
+                            <p>Id: <label th:text="${servico.id}"></label></p>
+                            <p>Grupo: <label th:text="${servico.grupo}"></label></p>
+                            <p>Item: <label th:text="${servico.item}"></label></p>
+                            <p>Valor: <label th:text="${servico.valor}"></label></p>
+                            <p>Id do cliente: <label th:text="${servico.id_cliente}"></label></p>
+                            <p>Id da empresa: <label th:text="${servico.id_empresa}"></label></p>
+                            <p>Data de emissão: <label th:text="${servico.data_emissao}"></label></p>
+                        </div>
+                        <div class="wd-small">
+                            <a th:href="@{/formAtualizaServico/{id}(id=${servico.id})}">
+                                <button class="btn btn-green">Atualizar</button>
+                            </a>
+                            <a th:href="@{/deletarServico/{id}(id=${servico.id})}">
+                                <button class="btn btn-red">Excluir</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
+
+        <div id="popupAjuda" class="popup rd-medium pd-large">
+            <img src="/img/fechar.png" class="icon icn-fechar" onclick="fecharPopup()"/>
+            <img src="/img/mycar.png" class="logo"/>
+            <h1 class="titulo pd-medium">Precisa de ajuda!</h1>
+            <p class="mensagem crd-white text tex-small">
+                <span>- Dica!</span> Na tela de LISTA SERVIÇO você pode visualizar os dados do(s) serviço(s) do veículo(s) de um usuário.<br/>
+                <span>- Campos obrigatórios:</span> Os campos com * são de preenchimento obrigatório.<br/>
+                <span>- Validações:</span> Fique atento as validações necessárias.
+            </p>
+        </div>
+
+        <script th:src="@{/js/script.js}"></script>
 
     </body>
 

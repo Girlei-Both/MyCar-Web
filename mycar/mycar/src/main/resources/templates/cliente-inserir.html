@@ -28,7 +28,7 @@
 
             <form action="#" th:action="@{/salvarCliente}" th:object="${cliente}" method="POST" class="card pd-medium">
                 <div class="dpy-flex rd-medium pd-small">
-                    <div class="wd-full"> 
+                    <div class="wd-full">
                         <p>Nome:* <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="wd-large"/></p>
                         <p>E-mail:* <input type="text" th:field="*{email}" placeholder="Insira o e-mail" class="wd-large"/></p>
                         <p>CPF:* <input type="text" th:field="*{cpf}" placeholder="Insira o CPF" class="wd-medium"/></p>
