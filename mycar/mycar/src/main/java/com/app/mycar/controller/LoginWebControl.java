@@ -29,14 +29,14 @@ public class LoginWebControl {
         LoginEntity authenticatedUser = loginService.autenticar(loginEntity.getUsuario(), loginEntity.getSenha(), loginEntity.getTipo());
 
         if (authenticatedUser != null) {
-            session.setAttribute("usuario", authenticatedUser.getUsuario());
-            if ("1".equals(loginEntity.getTipo())) {
-                return "redirect:/clienteHomePage";
-            } else if ("2".equals(loginEntity.getTipo())) {
-                return "redirect:/empreendedorHomePage";
-            } else {
+            session.setAttribute("tipoUsuario", authenticatedUser.getTipo());
+            if (null == loginEntity.getTipo()) {
                 return "redirect:/erroPage";
-            }
+            } else return switch (loginEntity.getTipo()) {
+                case "1" -> "redirect:/clienteHomePage";
+                case "2" -> "redirect:/empreendedorHomePage";
+                default -> "redirect:/erroPage";
+            };
         } else {
             model.addAttribute("mensagemErro", "Falha na autenticação. Verifique o usuário e senha.");
             return "redirect:/erroPage";

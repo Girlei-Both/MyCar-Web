@@ -18,47 +18,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ClienteWebControl {
 
-    private static final Logger logger = (Logger) LoggerFactory.getLogger(ClienteWebControl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ClienteWebControl.class);
 
     @Autowired
     ClienteService clienteService;
 
-    // Adicione um método privado para verificar a autenticação
-    private boolean isUsuarioAutenticado(HttpSession session, String tipoPermitido) {
-        if (session == null) {
-            return false;
-        }
-        String tipoUsuario = (String) session.getAttribute("tipo");
-        logger.info("Tipo de usuário na sessão: {}", tipoUsuario);
-        return tipoUsuario != null && tipoUsuario.equals(tipoPermitido);
-    }
-
     //1º - Abre a página onde LISTA todos os registros da base de dados
     @GetMapping("/formListaCliente")
     public String formListaCliente(Model model, HttpSession session) {
-        if (!isUsuarioAutenticado(session, "1")) {
-            return "redirect:/erroPage";
-        } else {
-
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        logger.info("Tipo de usuário: {}", tipoUsuario);
+        if ("1".equals(tipoUsuario)) {
             model.addAttribute("listarClientes", clienteService.getAllCliente());
             return "cliente-listar";
+        } else {
+            return "redirect:/erroPage";
         }
     }
 
     //2º - Abre a página onde ADICIONA um novo registro
     @GetMapping("/formInsereCliente")
-    public String formInsereCliente(Model model) {
-        ClienteEntity cliente = new ClienteEntity();
-        model.addAttribute("cliente", cliente);
-        return "cliente-inserir";
+    public String formInsereCliente(Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        logger.info("Tipo de usuário: {}", tipoUsuario);
+        if ("1".equals(tipoUsuario)) {
+            ClienteEntity cliente = new ClienteEntity();
+            model.addAttribute("cliente", cliente);
+            return "cliente-inserir";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //3º - Abre a página onde ATUALIZA um registro
     @GetMapping("/formAtualizaCliente/{id}")
-    public String formAtualizaCliente(@PathVariable(value = "id") Integer id, Model model) {
-        ClienteEntity cliente = clienteService.getIdCliente(id);
-        model.addAttribute("cliente", cliente);
-        return "cliente-atualizar";
+    public String formAtualizaCliente(@PathVariable(value = "id") Integer id, Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        logger.info("Tipo de usuário: {}", tipoUsuario);
+        if ("1".equals(tipoUsuario)) {
+            ClienteEntity cliente = clienteService.getIdCliente(id);
+            model.addAttribute("cliente", cliente);
+            return "cliente-atualizar";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //4º - Ação que ADICIONA novo registro

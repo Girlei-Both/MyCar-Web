@@ -2,7 +2,10 @@ package com.app.mycar.controller;
 
 import com.app.mycar.data.EmpreendedorEntity;
 import com.app.mycar.service.EmpreendedorService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,30 +18,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class EmpreendedorWebControl {
 
+    private static final Logger logger = LoggerFactory.getLogger(ClienteWebControl.class);
+
     @Autowired
     EmpreendedorService empreendedorService;
 
     //1º - Abre a página onde LISTA todos os registros da base de dados
     @GetMapping("/formListaEmpreendedor")
-    public String formListaEmpreendedor(Model model) {
-        model.addAttribute("listarEmpreendedores", empreendedorService.getAllEmpreendedor());
-        return "empreendedor-listar";
+    public String formListaEmpreendedor(Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        logger.info("Tipo de usuário: {}", tipoUsuario);
+        if ("2".equals(tipoUsuario)) {
+            model.addAttribute("listarEmpreendedores", empreendedorService.getAllEmpreendedor());
+            return "empreendedor-listar";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //2º - Abre a página onde ADICIONA um novo registro
     @GetMapping("/formInsereEmpreendedor")
-    public String formInsereEmpreendedor(Model model) {
-        EmpreendedorEntity empreendedor = new EmpreendedorEntity();
-        model.addAttribute("empreendedor", empreendedor);
-        return "empreendedor-inserir";
+    public String formInsereEmpreendedor(Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        logger.info("Tipo de usuário: {}", tipoUsuario);
+        if ("2".equals(tipoUsuario)) {
+            EmpreendedorEntity empreendedor = new EmpreendedorEntity();
+            model.addAttribute("empreendedor", empreendedor);
+            return "empreendedor-inserir";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //3º - Abre a página onde ATUALIZA um registro
     @GetMapping("/formAtualizaEmpreendedor/{id}")
-    public String formAtualizaEmpreendedor(@PathVariable(value = "id") Integer id, Model model) {
-        EmpreendedorEntity empreendedor = empreendedorService.getIdEmpreendedor(id);
-        model.addAttribute("empreendedor", empreendedor);
-        return "empreendedor-atualizar";
+    public String formAtualizaEmpreendedor(@PathVariable(value = "id") Integer id, Model model, HttpSession session) {
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+        logger.info("Tipo de usuário: {}", tipoUsuario);
+        if ("2".equals(tipoUsuario)) {
+            EmpreendedorEntity empreendedor = empreendedorService.getIdEmpreendedor(id);
+            model.addAttribute("empreendedor", empreendedor);
+            return "empreendedor-atualizar";
+        } else {
+            return "redirect:/erroPage";
+        }
     }
 
     //4º - Ação que ADICIONA novo registro
