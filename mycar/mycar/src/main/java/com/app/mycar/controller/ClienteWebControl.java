@@ -4,6 +4,8 @@ import com.app.mycar.data.ClienteEntity;
 import com.app.mycar.service.ClienteService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +18,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ClienteWebControl {
 
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(ClienteWebControl.class);
+
     @Autowired
     ClienteService clienteService;
 
+    // Adicione um método privado para verificar a autenticação
+    private boolean isUsuarioAutenticado(HttpSession session, String tipoPermitido) {
+        if (session == null) {
+            return false;
+        }
+        String tipoUsuario = (String) session.getAttribute("tipo");
+        logger.info("Tipo de usuário na sessão: {}", tipoUsuario);
+        return tipoUsuario != null && tipoUsuario.equals(tipoPermitido);
+    }
+
     //1º - Abre a página onde LISTA todos os registros da base de dados
     @GetMapping("/formListaCliente")
-    public String formListaCliente(Model model) {
-        model.addAttribute("listarClientes", clienteService.getAllCliente());
-        return "cliente-listar";
+    public String formListaCliente(Model model, HttpSession session) {
+        if (!isUsuarioAutenticado(session, "1")) {
+            return "redirect:/erroPage";
+        } else {
+
+            model.addAttribute("listarClientes", clienteService.getAllCliente());
+            return "cliente-listar";
+        }
     }
 
     //2º - Abre a página onde ADICIONA um novo registro
